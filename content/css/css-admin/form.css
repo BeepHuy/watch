@@ -1,0 +1,167 @@
+.col {
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.panel {
+    padding: 10px 17px;
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #E6E9ED;
+}
+
+.title-panel {
+    border-bottom: 2px solid #E6E9ED;
+    padding: 1px 5px 6px;
+    margin-bottom: 10px;
+}
+
+.title-panel h2 {
+    margin: 5px 0 6px;
+    font-size: 35px;
+    font-weight: 400;
+}
+
+.content-panel {
+    padding: 0 5px 6px;
+    position: relative;
+}
+
+.form-group {
+    margin-top: 31px;
+    margin-bottom: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.control-label {
+    font-size: 15px;
+    color: #000;
+    font-weight: bold;
+    text-align: right;
+    width: 15%;
+}
+
+#cke_describe_product {
+    margin-left: 20px;
+    width: 50%;
+}
+
+strong {
+    color: red;
+}
+
+.form-control, .border-radio, select{
+    width: 50%;
+    height: 40px;
+    outline: none;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+    text-indent: 8px;
+    font-size: 16px;
+    color: #555;
+    line-height: 40px;
+    border-radius: 5px;
+    transition: 0.3s ease;
+}
+
+textarea:focus,.form-control:focus {
+    border-color: rgb(87, 3, 87);
+}
+
+.label-field {
+    position: absolute;
+    left: 34%;
+    pointer-events: none;
+    user-select: none;
+    transition: 0.5s ease;
+}
+
+textarea:not(:placeholder-shown) ~.label-field, .form-control:not(:placeholder-shown) ~.label-field,
+textarea:focus ~.label-field, .form-control:focus ~.label-field {
+    color: rgb(87, 3, 87);
+    top: -9px;
+    padding: 0px 7px;
+    background-color: #fff;
+}
+
+textarea {
+    width: 50%;
+    outline: none;
+    border: 1px solid #ccc;
+    margin-left: 20px;
+    text-indent: 8px;
+    font-size: 16px;
+    color: #555;
+    padding-top: 12px;
+    border-radius: 5px;
+}
+
+.readonly {
+    background-color: rgb(227, 224, 224);
+}
+
+.update-pic {
+    margin-left: 34%;
+    color: #000;
+}
+
+label.error {
+    font-size: 12px;
+    display: block;
+    position: absolute;
+    bottom: -16px;
+    left: 33%;
+    color: red;
+    display: block;
+}
+
+.form-group-btn {
+    text-align: left;
+    margin-left: 33%;
+    margin-top: 31px;
+}
+
+.btn_success, .btn_success_reset, .btn_list{
+    padding: 6px 12px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #26B99A;
+    border: 1px solid #169F85;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s;
+}
+
+.btn_success_reset {
+    background-color: red;
+    border: 1px solid rgb(167, 11, 11);
+}
+
+.btn_list{
+    background-color: rgb(13, 167, 13);
+    border: 1px solid rgb(4, 134, 4);
+    text-decoration: none;
+}
+
+.btn_list:hover {
+    background-color: rgb(4, 134, 4);
+}
+
+.btn_success:hover {
+    background-color: #169F85;
+}
+
+.btn_success_reset:hover {
+    background-color: rgb(167, 11, 11);
+}
+
+.btn_success_reset:active {
+    background-color: blue;
+}
+
+.btn_success:active, .btn_list:active{
+    background-color: rgb(10, 160, 10);
+}
