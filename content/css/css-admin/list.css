@@ -1,0 +1,167 @@
+.title-panel {
+    z-index: 10;
+    border-radius: 10px;
+    width: 76%;
+    background: #f7f7f7;;
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.content-noList {
+    height: 50px;
+}
+
+ul.title-panel-right, td.td-child > ul{
+    padding: 0px;
+}
+
+.btn-title-panel-right, .btn-delete-all {
+    color: #fff;
+    border: 1px solid #169F85;
+    background-color: #26B99A;
+    text-decoration: none;
+    padding: 10px 12px;
+    font-size: 15px;
+    font-weight: 400;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 3px;
+    transition: 0.3s;
+}
+
+.btn-delete-all {
+    border: 1px solid #d53306;
+    background-color: #ea2214; 
+}
+
+.btn-delete-all:hover {
+    background-color: #b32c07; 
+}
+
+.btn-title-panel-right:hover {
+    background-color: #169F85;
+}
+
+.btn-title-panel-right:active {
+    background-color: #5cb85c;
+}
+
+.table, .table-child{
+    width: 100%;
+    border: 0.5px solid #ddd;
+    border-collapse: collapse;
+}
+
+tr:nth-child(2n) {
+    background-color: #f9f9f9;
+}
+
+tr, th,td {
+    border: 0.5px solid #ddd;
+}
+
+th, td {
+    padding: 12px;
+    text-align: center;
+}
+
+td.td-img img {
+    width: 70px;
+}
+
+.tr-child {
+    width: 100%;
+    display: none;
+}
+
+.tr-child, .td-child {
+    border: none;
+}
+
+td.td-child {
+    text-align: left;
+    background-color: #fff;
+}
+
+td.td-child > ul {
+    margin: 0px;
+    padding-left: 9px;
+}
+
+td.td-child > ul > li {
+    border-bottom: 1px dotted #efefef;
+    display: flex;
+}
+
+td.td-child > ul > li > span {
+    padding: 6px 10px 6px 0px;
+    font-size: 13px;
+}
+
+td.td-child > ul > li > .span-title {
+    width: 17%;
+}
+
+.td-see-more {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.see-more , .no-see-more{
+    border: 1px solid green;
+    border-radius: 50%;
+    padding: 2px 3px;
+    margin-right: 8px;
+    display: none;
+    cursor: pointer;
+}
+
+.sort {
+    width: 70px;
+}
+
+.fa-pen-to-square, .fa-trash, .fa-circle-info{
+    padding: 6px 6px;
+    background-color: rgb(9, 131, 122);
+    color: #fff;
+    border-radius: 4px;
+    font-size: 12px;
+    cursor: pointer;
+}
+
+.fa-circle-info {
+    background-color: rgb(10, 172, 10);
+}
+
+.fa-trash {
+    background-color: rgb(255, 0, 0);
+}
+
+.fa-circle-info:hover {
+    background-color: rgb(10, 117, 10);
+}
+
+.fa-pen-to-square:hover {
+    background-color: rgb(6, 79, 74);
+}
+
+.fa-trash:hover {
+    background-color: rgb(188, 7, 7);
+}
+
+footer {
+    padding: 16px 23px;
+    background-color: #fff;
+    margin: 10px 0px 10px 430px;
+}
+
+.pull-right p {
+    margin: 0px;
+    text-align: right;
+    font-size: 14px;
+}
+
