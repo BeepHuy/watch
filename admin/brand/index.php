@@ -6,22 +6,17 @@ check_login();
 
 extract($_REQUEST);
 
-if (exist_param('btn_delete')) {
+if (exist_param('btn_update')) {
     try {
-        hang_delete($ma_hang);
-        $brands = hang_select_all();
+        hang_update($ma_hang, $ten_hang);
     } catch (Exception $exc) {
-        $MESSAGE = 'Xoá thất bại!';
+        $MESSAGE = 'Cập nhật thất bại!';
     }
     $VIEW = header("location: $ROOT_URL/admin/brand/index.php?btn_list");
-} else if (exist_param('btn_delete_all')) {
-    try {
-        hang_delete_all();
-        $brands = hang_select_all();
-    } catch (Exception $exc) {
-        $MESSAGE = 'Xoá thất bại!';
-    }
-    $VIEW = header("location: $ROOT_URL/admin/brand/index.php?btn_list");
+} else if (exist_param('btn_edit')) {
+    $brand = hang_select_by_id($ma_hang);
+    extract($brand);
+    $VIEW = 'brand/edit.php';
 } else if (exist_param('btn_list')) {
     $brands = hang_select_all();
     $amounts = amount_brand();
@@ -29,5 +24,4 @@ if (exist_param('btn_delete')) {
 } else {
     $VIEW = 'brand/new.php';
 }
-
 require '../layout.php';
