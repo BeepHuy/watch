@@ -76,7 +76,7 @@
                         <a href="../goods/show-cart.php" class="icon-cart"><i title="Giỏ hàng" class="fa-sharp fa-solid fa-basket-shopping"></i></a>
                     </li>
                     <li>
-                        <?php
+                    <?php
                         if (isset($_SESSION['user'])) {
                             require 'login-info.php';
                         } else {

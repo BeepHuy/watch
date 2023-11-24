@@ -46,7 +46,7 @@
                                         <td class="total-product c-0">3.000.000 <span style="text-decoration: underline;">đ</span></td>
                                     </tr>
                                     <tr>
-<td class="td-continue-shopping" colspan="6">
+                                        <td class="td-continue-shopping" colspan="6">
                                             <div class="continue-shopping">
                                                 <a href="../goods/list-allshop.php" class="button-continue-shopping">← TIẾP TỤC XEM SẢN PHẨM</a>
                                                 <input type="submit" name="update_click" value="CẬP NHẬT GIỎ HÀNG" class="update-shopping">
@@ -88,6 +88,9 @@
             </div>
         </div>
     </div>
+    <footer class="footer-wrapper">
+        <?php require '../layout/footer.php'; ?>
+    </footer>
 </body>
 
 </html>
