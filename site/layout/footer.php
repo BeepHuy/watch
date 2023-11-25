@@ -9,7 +9,7 @@
                     <ul class="footer-list">
                         <li><a href="../main-page/index.php">Trang chủ</a></li>
                         <li><a href="../main-page/about.php">Giới thiệu</a></li>
-                            <li><a href="../goods/list-allshop.php">Sản Phẩm</a></li>
+                            <li><a href="../goods/list-allshop.php">San Pham</a></li>
                         <li><a href="../main-page/contact.php">Liên hệ</a></li>
                     </ul>
                 </div>
@@ -23,9 +23,9 @@
                         sản phẩm mới, chất lượng với giá thành phù hợp!
                     </p>
                     <div class="social">
-                        <a href="https://www.facebook.com/"><img src="../../content/images/img-site/facebook.jpg" alt=""></a>
-                        <a href="https://www.instagram.com/"><img src="../../content/images/img-site/instagram.jpg" alt=""></a>
-                        <a href="https://www.tiktok.com/foryou"><img src="../../content/images/img-site/tiktok.jpg" alt=""></a>
+                        <a href="https://www.facebook.com/"><img src="../../content/images/img-site/facebook.png" alt=""></a>
+                        <a href="https://www.instagram.com/"><img src="../../content/images/img-site/instagram.png" alt=""></a>
+                        <a href="https://www.tiktok.com/foryou"><img src="../../content/images/img-site/tiktok.png" alt=""></a>
                     </div>
                 </div>
             </div>
