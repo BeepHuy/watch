@@ -1,0 +1,156 @@
+/* TABLET AND MOBILE */
+@media (max-width: 1230px) {
+    .hide {
+        display: none;
+    }
+    .show {
+        display: block;
+    }
+    .tr-child-show {
+        display: table-row;
+    }
+    .col {
+        padding: 0px;
+    }
+    .panel {
+        border-right: none;
+    }
+    .nav-menu-info {
+        justify-content: space-between;
+    }
+    .nav-menu-info-link {
+        cursor: default;
+    }
+    .nav-side-menu-responsive {
+        display: block;
+    }
+    .checkbox_responsive:checked ~.nav-side-menu-responsive {
+        transform: translateX(0);
+        transition: 0.5s;
+        opacity: 1;
+    }
+    .checkbox_responsive:checked ~.responsive_overlay {
+        display: block;
+    }
+    .statistics-item-icon {
+        font-size: 35px;
+    }
+    .fa-pen-to-square, .fa-trash {
+        margin-bottom: 4px;
+        font-size: 15px;
+    }
+    .fa-caret-down {
+        margin-top: 5px;
+    }
+    /* FOOTER */
+    footer {
+        margin: 10px 0px 10px 0px;
+    }
+}
+
+/* TABLET */
+@media (min-width: 740px) and (max-width: 1229px) {
+    .title-panel h2 {
+        font-size: 22px;
+    }
+    .nav-menu-log {
+        left: 27px;
+    }
+    .form-control, select, textarea, .border-radio{
+        width: 70%;
+    }
+    #cke_describe_product {
+        width: 70%;
+    }
+    .label-field {
+        left: 25%;
+    }
+    .form-group-btn {
+        margin-left: 23.6%;
+    }
+    #columnchart_3d {
+        width: 720px;
+    }
+    label.error{
+        left: 24%;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 739px) {
+    /* HEADER */
+    .nav-menu {
+        padding: 5px 10px 5px 0px;
+    }
+    .nav-menu-log {
+        top: 18px;
+        left: 55px;
+        width: 140px;
+        padding: 12px 5px;
+    }
+    .info-pic {
+        width: 30%;
+    }
+    .info-name span {
+        font-size: 13px;
+    }
+    /* MAIN */
+    .title-panel h2 {
+        font-size: 16px;
+    }
+    .btn-title-panel-right, .btn-delete-all{
+        font-size: 11px;
+        padding: 5px 5px;
+    }
+    .update-pic {
+        margin-left: 0px;
+    }
+    .form-group {
+        display: block;
+    }
+    .control-label {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin-bottom: 8px;
+    }
+    .form-control, select, textarea, .border-radio{
+        margin-left: 0px;
+        width: 100%;
+    }
+    #cke_describe_product {
+        width: 100%;
+        margin: 0px;
+    }
+    .label-field {
+        display: none;
+    }
+    .form-group-btn {
+        margin-left: 0px;
+    }
+    .statistics {
+        display: block;
+    }
+    .statistics-item {
+        width: 91%;
+        margin-bottom: 10px;
+    }
+    .title-chart p {
+        font-size: 15px;
+    }
+    #columnchart_3d {
+        width: 337px;
+    }
+    td.td-child > ul > li > .span-title {
+        width: 36%;
+    }
+    label.error {
+        bottom: -4px;
+        left: 0px;
+    }
+    /* FOOTER */
+    .pull-right p {
+        text-align: left;
+        font-size: 13px;
+    }
+}

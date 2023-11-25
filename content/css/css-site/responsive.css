@@ -1,0 +1,213 @@
+/*MOBILE & TABLET */
+@media (max-width: 1023px) {
+    .tools-item > li > a::before {
+        display: none;
+    }
+    .logo{
+        margin: 0;
+        text-align: center;
+    }
+    .logo > a > img {
+        width: 40%;
+    }
+    .tools {
+        margin: 0;
+        text-align: center;
+    }
+    .tools-item {
+        display: block;
+    }
+    .title-category {
+        margin-top: 0px;
+    }
+    .product-item-name p {
+        font-size: 16px;
+    }
+    .product-item-discount {
+        height: 40px;
+        width: 40px;
+    }
+    .product-item-discount span {
+        font-size: 15px;
+        line-height: 40px;
+    }
+    .product-item-price del, .product-item-price p {
+        font-size: 13px;
+    }
+    .checkbox-res:checked ~.menu-res {
+        transform: translateX(0);
+        transition: 0.5s;
+    }
+    .checkbox-res:checked ~.overlay {
+        display: block;
+    }
+    .wrapper-root-type {
+        text-align: center;
+    }
+    .box-text-ad2 {
+        right: 10px;
+        top: 20px;
+    }
+    .box-text-ad2 > h2 {
+        font-size: 25px;
+    }
+    .box-text-ad2 > h4 {
+        font-size: 14px;
+        line-height: 24px;
+    }
+    .amount-show-cart, .tb-form-show-cart {
+        padding: 0px;
+    }
+    .wrapper-custommer-detail {
+        padding: 0;
+    }
+    .my-account {
+        padding: 15px 10px 15px 20px;
+        color: #666666d9;
+        font-size: 14px;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+    .link-my-account {
+        top: 60px;
+        min-width: 145px;
+    }
+    .link-my-account > li > a {
+        font-size: 10px;
+        padding: 7px 10px;
+    }
+}
+
+/* MOBILE */
+@media (max-width: 739px) {
+    body{
+        margin-top: 60px;
+    }
+    .header-menu {
+        height: 60px;
+    }
+    .slider-prev {
+        padding: 4px 7px;
+        font-size: 16px;
+        left: 6px;
+    }
+    .slider-next {
+        padding: 4px 7px;
+        font-size: 16px;
+        right: 6px;
+    }
+    .slider-dots {
+        bottom: 8px;
+    }
+    .slider-dot-item {
+        height: 2px;
+        width: 26px;
+    }
+    .col {
+        margin-bottom: 0px;
+    }
+    .title-category {
+        font-size: 26px;
+        line-height: 40px;
+    }
+    .title-about {
+        font-size: 17px;
+    }
+    .name-product-detail {
+        font-size: 27px;
+    }
+    .price-detail > del, .price-detail > p {
+        font-size: 22px;
+    }
+    .amount-product {
+        text-align: center;
+    }
+    .amount-product > .quantity {
+        justify-content: center;
+    }
+    .continue-shopping, .update-shopping{
+        display: block;
+    }
+    .update-shopping {
+        margin-top: 20px;
+        margin-left: 0;
+        padding: 8px 42px;
+    }
+    .middle::before {
+        position: absolute;
+        content: " ";
+        width: 100%;
+        top: 0;
+        border-top: 1px dashed #ddd;
+        border-left: none;
+        opacity: .5;
+    }
+    .middle::after {
+        position: absolute;
+        content: " ";
+        width: 100%;
+        bottom: 0;
+        border-bottom: 1px dashed #ddd;
+        opacity: .5;
+        border-right: none;
+    }
+    .col-inner {
+        text-align: center;
+    }
+    .bg-box-ad2, .bg-box-ad3 {
+        height: 182px;
+    }
+    .footer-heading {
+        font-size: 17px;
+    }
+    .footer-list > li > a {
+        font-size: 15px;
+    }
+    .footer-logo > img {
+        width: 35%;
+    }
+    .intro {
+        font-size: 16px;
+    }
+    .social {
+        margin-top: 20px;
+    }
+    .footer-contact p, .copyright-footer p {
+        font-size: 15px;
+    }
+}
+
+/* TABLET */
+@media (min-width: 1178px) and (max-width: 1426px) {
+    .logo {
+        margin-left: 5%;
+    }
+    .tools {
+        margin-right: 5%;
+    }
+    .bg-box-ad2, .bg-box-ad3 {
+        height: 315px;
+    }
+}
+
+/* TABLET */
+@media (min-width: 1023px) and (max-width: 1177px) {
+    .main-menu > li > a, .tools-item > li > a{
+        font-size: 17px;
+    }
+    .l-0 {
+        display: none;
+    }
+    .logo{
+        margin-left: 1%;
+    }
+    .tools {
+        margin: 20px;
+    }
+    .logo > a > img{
+        width: 40%;
+    }
+    .bg-box-ad2, .bg-box-ad3 {
+        height: 300px;
+    }
+}

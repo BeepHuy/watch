@@ -53,7 +53,7 @@
                         <li><a href="<?= $ADMIN_URL ?>/customer" class="link"><i class="fa-solid fa-user"></i>Khách hàng</a></li>
                         <li><a href="<?= $ADMIN_URL ?>/comment" class="link"><i class="fa-solid fa-comment"></i>Bình luận</a></li>
                         <li>
-                            <a href="<?= $ADMIN_URL ?>/bill" class="link"><i class="fa-sharp fa-solid fa-briefcase"></i>Đơn hàng</a>
+                            <a href="<?= $ADMIN_URL ?>/bill/list.php" class="link"><i class="fa-sharp fa-solid fa-briefcase"></i>Đơn hàng</a>
                         </li>
                     </ul>
                 </div>
