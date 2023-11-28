@@ -2,7 +2,7 @@
 <html>
 
 <body>
-    <div class="grid wide">
+<div class="grid wide">
         <!-- SẢN PHẨM MỚI -->
         <div class="gap-element" style="padding-top: 50px;"></div>
         <div class="col l-12">
@@ -10,160 +10,41 @@
         </div>
 
         <div class="row no-gutters container-content">
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen01.png" alt="">
+            <?php
+            foreach ($products as $product) {
+                if ($product == $products[8]) break; ?>
+                <div class="col l-3 m-3 c-6" id="col-product">
+                    <a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>" class="product-item">
+                        <div class="content-product-item">
+                            <!-- <?php
+                                    if ($product['giam_gia'] > 0) { ?>
+                                        <div class="product-item-discount">
+                                            <span>-<?= $product['giam_gia']; ?>%</span>
+                                        </div>
+                                <?php } ?> -->
+                            <div class="product-item-img">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh']; ?>" alt="">
+                            </div>
+                            <div class="product-item-name-category">
+                                <p><?= $product['ten_loai']; ?></p>
+                            </div>
+                            <div class="product-item-name">
+                                <p><?= $product['ten_sp']; ?></p>
+                            </div>
+                            <div class="product-item-price">
+                                <!-- <?php
+                                        if ($product['giam_gia'] > 0) { ?>
+                                            <del><?= number_format($product['don_gia'], 0, ',', '.');  ?> đ</del>
+                                    <?php } ?> -->
+                                <p><?= number_format($product['don_gia'] - ($product['don_gia'] * ($product['giam_gia'] / 100)), 0, ',', '.'); ?> đ</p>
+                            </div>
                         </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air MAX SC</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen02.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air Force 1 GS BLACK</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen03.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air MAX EXCEE</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen04.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air MAX EXCEE</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen01.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air 1 Star</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen02.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike SB ALLEYOOP</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen03.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Revolution 6 NN</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen04.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Nike Air max 90 terrascape</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>3.600.000 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
+                    </a>
+                </div>
+            <?php } ?>
         </div>
     </div>
+
 
     <!-- AD -->
     <div class="wrapper-ad">
