@@ -281,164 +281,44 @@
     </div>
 
     <div class="grid wide">
-        <!-- SẢN PHẨM XEM NHIỀU NHẤT -->
-        <div class="col l-12">
-            <h2 class="title-category">Sản phẩm bán chạy nhất</h2>
-        </div>
-        <div class="row no-gutters container-content">
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen01.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Anzarun Lite Gray</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen02.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Clyde NYE Black</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen03.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Erupt Trail Running Shoes</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/converseMen04.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nam</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Sneaker Unisex Puma RS-X 3D Harbor Mist</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen01.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Addidas Anzarun Lite Gray</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen02.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Anzarun Lite Gray</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen03.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Anzarun Lite Gray</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col l-3 m-3 c-6" id="col-product">
-                <a href="../goods/detail-ui.php" class="product-item">
-                    <div class="content-product-item">
-                        <div class="product-item-img">
-                            <img src="../../content/images/img-admin/img-products/conversewomen04.png" alt="">
-                        </div>
-                        <div class="product-item-name-category">
-                            <p>Giày Nữ</p>
-                        </div>
-                        <div class="product-item-name">
-                            <p>Puma Anzarun Lite Gray</p>
-                        </div>
-                        <div class="product-item-price">
-                            <p>2.700.00 đ</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
+        <!-- SẢN PHẨM XEM NHIỀU NHẤT -->
+        <div class="col l-12">
+            <h2 class="title-category">Sản phẩm Xem Nhiều Nhất</h2>
+        </div>
+        <div class="row no-gutters container-content">
+            <?php
+            foreach ($viewProducts as $product) { ?>
+                <div class="col l-3 m-3 c-6" id="col-product">
+                    <a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>" class="product-item">
+                        <div class="content-product-item">
+                            <!-- <?php
+                                    if ($product['giam_gia'] > 0) { ?>
+                                        <div class="product-item-discount">
+                                            <span>-<?= $product['giam_gia']; ?>%</span>
+                                        </div>
+                                <?php } ?> -->
+                            <div class="product-item-img">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh']; ?>" alt="">
+                            </div>
+                            <div class="product-item-name-category">
+                                <p><?= $product['ten_loai']; ?></p>
+                            </div>
+                            <div class="product-item-name">
+                                <p><?= $product['ten_sp']; ?></p>
+                            </div>
+                            <div class="product-item-price">
+                                <!-- <?php
+                                        if ($product['giam_gia'] > 0) { ?>
+                                            <del><?= number_format($product['don_gia'], 0, ',', '.');  ?> đ</del>
+                                    <?php } ?> -->
+                                <p><?= number_format($product['don_gia'] - ($product['don_gia'] * ($product['giam_gia'] / 100)), 0, ',', '.'); ?> đ</p>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
 </body>
 
 </html>
