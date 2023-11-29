@@ -6,7 +6,7 @@
         <div class="wrapper-root-type">
             <a class="root-type" href="<?= $SITE_URL ?>/main-page?homepage">Trang chủ</a>
             <span class="divider">/</span>
-            <span class="root-type-name">Cửa hàng</span>
+            <span class="root-type-name"><?php if (count($products) > 0) echo $products[0]['ten_loai']; ?></span>
         </div>
         <div class="gap-element" style="padding-top: 50px;"></div>
         <div class="row no-gutters container-content">

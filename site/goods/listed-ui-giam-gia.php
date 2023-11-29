@@ -6,7 +6,7 @@
         <div class="wrapper-root-type">
             <a class="root-type" href="<?= $SITE_URL ?>/main-page?homepage">Trang chủ</a>
             <span class="divider">/</span>
-            <span class="root-type-name">Cửa hàng</span>
+            <span class="root-type-name"><?php if (count($products) > 0) echo 'Sản phẩm giảm giá' ?></span>
         </div>
         <div class="gap-element" style="padding-top: 50px;"></div>
         <div class="row no-gutters container-content">
@@ -14,7 +14,7 @@
             if (count($products) > 0) { ?>
                 <?php
                 foreach ($products as $product) { ?>
-                    <div class="col l-3 m-3 c-6" id="col-product">
+                    <div class="col l-3 m-3 c-6">
                         <a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>" class="product-item">
                             <div class="content-product-item">
                                 <?php
