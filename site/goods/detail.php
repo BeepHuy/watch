@@ -17,3 +17,5 @@ extract($product);
 $VIEW = "goods/detail-ui.php";
 
 require '../layoutSmall.php';
+?>
+<!--  -->

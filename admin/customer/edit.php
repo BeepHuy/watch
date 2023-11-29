@@ -1,23 +1,3 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../../content/css/css-admin/main.css">
-    <link rel="stylesheet" href="../../content/css/css-admin/form.css">
-    <link rel="stylesheet" href="../../content/css/css-admin/list.css">
-    <link rel="stylesheet" href="../../content/css/css-admin/responsive.css">
-    <script src="../../content/js/ckeditor/ckeditor.js"></script>
-    <script src="../../content/js/js-admin/main.js"></script>
-    <title>QUẢN TRỊ</title>
-
-</head>
-
 <body>
     <div class="wrap">
         <div class="col">
@@ -34,24 +14,19 @@
                     <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="control-label" for="id_customer">Mã khách hàng <strong>*</strong></label>
-                            <input class="form-control readonly" readonly type="text" name="ma_kh" id="id_customer"
-                                placeholder=" " value="<?= $ma_kh ?>">
+                            <input class="form-control readonly" readonly type="text" name="ma_kh" id="id_customer" placeholder=" " value="<?= $ma_kh ?>">
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="name_customer">Tên khách hàng <strong>*</strong></label>
-                            <input type="text" class="form-control" name="ten_kh" id="name_customer" placeholder=" "
-                                value="<?= $ten_kh ?>"> <br>
+                            <input type="text" class="form-control" name="ten_kh" id="name_customer" placeholder=" " value="<?= $ten_kh ?>"> <br>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="pass_customer">Mật khẩu <strong>*</strong></label>
-                            <input type="password" class="form-control" name="mat_khau" id="pass" placeholder=" "
-                                value="<?= $mat_khau ?>"> <br>
+                            <input type="password" class="form-control" name="mat_khau" id="pass" placeholder=" " value="<?= $mat_khau ?>"> <br>
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="confirm_pass_customer">Xác nhận mật khẩu
-                                <strong>*</strong></label>
-                            <input type="password" class="form-control" name="mat_khau2" id="confirm_pass_customer"
-                                placeholder=" " value="<?= $mat_khau ?>"> <br>
+                            <label class="control-label" for="confirm_pass_customer">Xác nhận mật khẩu <strong>*</strong></label>
+                            <input type="password" class="form-control" name="mat_khau2" id="confirm_pass_customer" placeholder=" " value="<?= $mat_khau ?>"> <br>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="pic_customer">Hình ảnh <strong>*</strong></label>
@@ -60,28 +35,21 @@
                         <span class="update-pic"><?= $hinh ?></span>
                         <div class="form-group">
                             <label class="control-label" for="tel_customer">Di động <strong>*</strong></label>
-                            <input type="text" class="form-control" name="sdt" id="tel_customer" placeholder=" "
-                                value="<?= $sdt ?>"> <br>
+                            <input type="text" class="form-control" name="sdt" id="tel_customer" placeholder=" " value="<?= $sdt ?>"> <br>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="address_customer">Địa chỉ <strong>*</strong></label>
-                            <input type="text" class="form-control" name="dia_chi" id="address_customer" placeholder=" "
-                                value="<?= $dia_chi ?>"> <br>
+                            <input type="text" class="form-control" name="dia_chi" id="address_customer" placeholder=" " value="<?= $dia_chi ?>"> <br>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="email_customer">Email <strong>*</strong></label>
-                            <input type="email" class="form-control" name="email" id="email_customer" placeholder=" "
-                                value="<?= $email ?>"> <br>
+                            <input type="email" class="form-control" name="email" id="email_customer" placeholder=" " value="<?= $email ?>"> <br>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="">Vai trò <strong>*</strong></label>
                             <div class="border-radio">
-                                <input type="radio" class="form-control-radio" name="vai_tro" value="0"
-                                    <?php echo !$vai_tro ? 'checked' : '' ?> id="customer"><label for="customer">Khách
-                                    hàng</label>
-                                <input type="radio" class="form-control-radio" name="vai_tro" value="1"
-                                    <?php echo $vai_tro ? 'checked' : '' ?> id="admin"> <label for="admin">Nhân
-                                    viên</label>
+                                <input type="radio" class="form-control-radio" name="vai_tro" value="0" <?php echo !$vai_tro ? 'checked' : '' ?> id="customer"><label for="customer">Khách hàng</label>
+                                <input type="radio" class="form-control-radio" name="vai_tro" value="1" <?php echo $vai_tro ? 'checked' : '' ?> id="admin"> <label for="admin">Nhân viên</label>
                             </div>
                         </div>
                         <div class="form-group-btn">
@@ -96,72 +64,70 @@
     </div>
 </body>
 
-</html>
-
 <script>
-$(document).ready(function() {
-    $("#form").validate({
-        rules: {
-            "ma_kh": {
-                required: true
+    $(document).ready(function() {
+        $("#form").validate({
+            rules: {
+                "ma_kh": {
+                    required: true
+                },
+                "ten_kh": {
+                    required: true
+                },
+                "mat_khau": {
+                    required: true,
+                    minlength: 6
+                },
+                "mat_khau2": {
+                    required: true,
+                    equalTo: "#pass",
+                },
+                "sdt": {
+                    required: true,
+                    number: true,
+                },
+                "dia_chi": {
+                    required: true,
+                },
+                "email": {
+                    required: true,
+                    email: true
+                },
+                "hinh": {
+                    required: true,
+                },
             },
-            "ten_kh": {
-                required: true
-            },
-            "mat_khau": {
-                required: true,
-                minlength: 6
-            },
-            "mat_khau2": {
-                required: true,
-                equalTo: "#pass",
-            },
-            "sdt": {
-                required: true,
-                number: true,
-            },
-            "dia_chi": {
-                required: true,
-            },
-            "email": {
-                required: true,
-                email: true
-            },
-            "hinh": {
-                required: true,
-            },
-        },
 
-        messages: {
-            "ma_kh": {
-                required: "</br>Mã khách hàng không dược để trống!"
-            },
-            "ten_kh": {
-                required: "</br>Họ tên không được để trống!"
-            },
-            "mat_khau": {
-                required: "</br>Mật khẩu không được để trống!",
-                minlength: "</br>Mật khẩu ít nhất 6 kí tự!"
-            },
-            "mat_khau2": {
-                required: "</br>Xác nhận mật khẩu không được để trống!",
-                equalTo: "</br>Mật khẩu không trùng khớp!"
-            },
-            "sdt": {
-                required: "</br>Số điện thoại không được để trống!",
-                number: "</br>Số điện thoại phải là số!"
-            },
-            "dia_chi": {
-                required: "</br>Địa chỉ không được để trống!",
-            },
-            "email": {
-                required: "</br>Email không được để trống!",
-                email: "</br>Email không đúng định dạng!"
-            },
-            "hinh": {
-                required: "</br>Hình ảnh không được để trống!",
+            messages: {
+                "ma_kh": {
+                    required: "</br>Mã khách hàng không dược để trống!"
+                },
+                "ten_kh": {
+                    required: "</br>Họ tên không được để trống!"
+                },
+                "mat_khau": {
+                    required: "</br>Mật khẩu không được để trống!",
+                    minlength: "</br>Mật khẩu ít nhất 6 kí tự!"
+                },
+                "mat_khau2": {
+                    required: "</br>Xác nhận mật khẩu không được để trống!",
+                    equalTo: "</br>Mật khẩu không trùng khớp!"
+                },
+                "sdt": {
+                    required: "</br>Số điện thoại không được để trống!",
+                    number: "</br>Số điện thoại phải là số!"
+                },
+                "dia_chi": {
+                    required: "</br>Địa chỉ không được để trống!",
+                },
+                "email": {
+                    required: "</br>Email không được để trống!",
+                    email: "</br>Email không đúng định dạng!"
+                },
+                "hinh": {
+                    required: "</br>Hình ảnh không được để trống!",
+                }
             }
-        }
+        });
     });
-});
 </script>

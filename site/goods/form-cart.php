@@ -49,7 +49,7 @@ if (isset($_GET['order'])) {
                     <div class="col l-12 m-12 c-12">
                         <?php
                         if (!isset($_SESSION['user'])) { ?>
-                            <p class="user-have-account">Bạn đã có tài khoản? <a href="<?= $SITE_URL ?>/account/login.php">Ấn vào đây để đăng nhập</a></p>
+                            <p class="user-have-account">Đăng nhập để tiến hành thanh toán! <a href="<?= $SITE_URL ?>/account/login.php">Ấn vào đây để đăng nhập</a></p>
                         <?php } ?>
                     </div>
                 </div>

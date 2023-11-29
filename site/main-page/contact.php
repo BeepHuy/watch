@@ -2,9 +2,6 @@
 <html lang="en">
 
 <body>
-    <header class="header">
-        <?php require '../layout/header.php'; ?>
-    </header>
     <div class="contact">
         <div class="grid wide">
             <div class="gap-element" style="padding-top: 30px;"></div>
@@ -47,7 +44,7 @@
                         <div class="content-contact">
                             <h3 class="title-contact">Email</h3>
                             <p class="des-contact">
-                                shopdongho@gmail.com
+                                shopgiay@gmail.com
                             </p>
                         </div>
                     </div>
@@ -55,9 +52,6 @@
             </div>
         </div>
     </div>
-    <footer class="footer-wrapper">
-        <?php require '../layout/footer.php'; ?>
-    </footer>
 </body>
 
 </html>

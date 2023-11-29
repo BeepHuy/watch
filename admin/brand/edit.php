@@ -1,6 +1,3 @@
-<!DOCTYPE html>
-<html>
-
 <body>
     <div class="wrap">
         <div class="col">
@@ -23,16 +20,12 @@
                             <input class="readonly form-control" type="text" name="ma_hang" id="id_brand" readonly value="<?= $ma_hang; ?>">
                         </div>
                         <div class="form-group">
-                            <label class="control-label" for="name_brand">Tên hãng
-                                <strong>*</strong></label>
+                            <label class="control-label" for="name_brand">Tên hãng <strong>*</strong></label>
                             <input type="text" class="form-control" name="ten_hang" id="name_brand" placeholder=" " value="<?= $ten_hang; ?>"> <br>
-
                             <!-- <label for="" class="label-field">Tên hãng</label> -->
-
                         </div>
                         <div class="form-group-btn">
-                            <button type="submit" name="btn_update" class="btn_success">Cập
-                                nhật</button>
+                            <button type="submit" name="btn_update" class="btn_success">Cập nhật</button>
                             <button type="reset" class="btn_success_reset">Nhập lại</button>
                             <a href="index.php?btn_list" class="btn_list">Danh sách</a>
                         </div>
@@ -42,8 +35,6 @@
         </div>
     </div>
 </body>
-
-</html>
 
 <script>
     $(document).ready(function() {

@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
@@ -12,7 +10,7 @@
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="password">Mật khẩu <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau"  type="password" placeholder="Mật khẩu" id="password" value="<?= $mat_khau ?>">
+                    <input class="form-control" name="mat_khau" type="password" placeholder="Mật khẩu" id="password" value="<?= $mat_khau ?>">
                 </div>
                 <div class="form-btn">
                     <input class="btn-submit" name="btn_login" type="submit" value="Đăng nhập">
@@ -24,7 +22,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {

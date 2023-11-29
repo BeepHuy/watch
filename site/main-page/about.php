@@ -2,9 +2,6 @@
 <html lang="en">
 
 <body>
-    <header class="header">
-        <?php require '../layout/header.php'; ?>
-    </header>
     <div class="about">
         <div class="grid wide">
             <div class="gap-element" style="padding-top: 30px;"></div>
@@ -12,13 +9,13 @@
                 <h1 class="heading-about">Watch</h1>
             </div>
             <div class="col l-12">
-                <div class="banner-about"><img src="../../content/images/img-site/banner1.jpg" alt=""></div>
+                <div class="banner-about"><img src="<?= $CONTENT_URL ?>/images/img-site/banner-about.jpg" alt=""></div>
             </div>
             <div class="row no-gutters main-about">
                 <div class="col l-4 m-4 c-12">
                     <div class="content-about">
                         <div class="icon-about">
-                            <img src="../../content/images/img-site/diamond.png" alt="">
+                            <img src="<?= $CONTENT_URL ?>/images/img-site/diamond.png" alt="">
                         </div>
                         <h3 class="title-about">Thành lập</h3>
                         <p class="des-about">
@@ -31,7 +28,7 @@
                 <div class="col l-4 m-4 c-12">
                     <div class="content-about">
                         <div class="icon-about">
-                            <img src="../../content/images/img-site/network1.png" alt="">
+                            <img src="<?= $CONTENT_URL ?>/images/img-site/network1.png" alt="">
                         </div>
                         <h3 class="title-about">Thành tựu</h3>
                         <p class="des-about">
@@ -45,7 +42,7 @@
                 <div class="col l-4 m-4 c-12">
                     <div class="content-about">
                         <div class="icon-about">
-                            <img src="../../content/images/img-site/eye.png" alt="">
+                            <img src="<?= $CONTENT_URL ?>/images/img-site/eye.png" alt="">
                         </div>
                         <h3 class="title-about">Tầm nhìn</h3>
                         <p class="des-about">
@@ -145,9 +142,6 @@
             </div>
         </div>
     </div>
-    <footer class="footer-wrapper">
-            <?php require '../layout/footer.php'; ?>
-        </footer>
 </body>
 
 </html>

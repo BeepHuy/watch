@@ -1,24 +1,22 @@
-<!DOCTYPE html>
-<html lang="en">
-<body>
-    <div class="wrapper">
-        <!-- HEADER -->
-        <header class="header">
-        <?php require '../layout/header.php'; ?>
-        </header>
+<?php
+require '../../global.php';
+require_once '../../dao/goods.php';
+require_once '../../dao/type.php';
 
-        <!-- BANNER -->
-        <?php require '../layout/banner.php'; ?>
-
-        <!-- CONTAINER -->
-        <div class="container">
-            <?php require './homepage.php'; ?>
-        </div>
-
-        <!-- FOOTER -->
-        <footer class="footer-wrapper">
-            <?php require '../layout/footer.php'; ?>
-        </footer>
-    </div>
-</body>
-</html>
+if (exist_param("about")) {
+    $types = loai_select_all();
+    $VIEW = "main-page/about.php";
+    require '../layoutSmall.php';
+} else if (exist_param("contact")) {
+    $types = loai_select_all();
+    $VIEW = "main-page/contact.php";
+    require '../layoutSmall.php';
+} else {
+    $types = loai_select_all();
+    $products = san_pham_select_all();
+    $viewProducts = san_pham_select_so_luot_xem();
+    $VIEW = "main-page/homepage.php";
+    require '../layout.php';
+}
+?>
+<!--  -->

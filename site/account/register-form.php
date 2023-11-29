@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
@@ -12,31 +10,31 @@
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="name">Họ và tên <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="ten_kh"  type="text" placeholder="Họ và tên" id="name">
+                    <input class="form-control" name="ten_kh" type="text" placeholder="Họ và tên" id="name">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="password">Mật khẩu <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau"  type="password" placeholder="Mật khẩu" id="password">
+                    <input class="form-control" name="mat_khau" type="password" placeholder="Mật khẩu" id="password">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="rePassword">Xác nhận mật khẩu <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau2"  type="password" placeholder="Xác nhân mật khẩu" id="rePassword">
+                    <input class="form-control" name="mat_khau2" type="password" placeholder="Xác nhân mật khẩu" id="rePassword">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="photo">Hình ảnh <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="up_hinh"  type="file" id="photo">
+                    <input class="form-control" name="up_hinh" type="file" id="photo">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="sdt"  type="text" placeholder="Số điện thoại" id="sdt">
+                    <input class="form-control" name="sdt" type="text" placeholder="Số điện thoại" id="sdt">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="address">Địa chỉ <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="dia_chi"  type="text" placeholder="Địa chỉ" id="address">
+                    <input class="form-control" name="dia_chi" type="text" placeholder="Địa chỉ" id="address">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="email">Email <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="email"  type="email" placeholder="Email" id="email">
+                    <input class="form-control" name="email" type="email" placeholder="Email" id="email">
                 </div>
                 <input type="hidden" value="0" name="vai_tro">
                 <div class="form-btn">
@@ -46,7 +44,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {
@@ -75,7 +72,7 @@
                 },
                 "email": {
                     required: true,
-                    email:true
+                    email: true
                 },
                 "up_hinh": {
                     required: true,
@@ -100,14 +97,14 @@
                 "sdt": {
                     required: "</br>Số điện thoại không được để trống!",
                     number: "</br>Số điện thoại phải là số!"
-                }, 
+                },
                 "dia_chi": {
                     required: "</br>Địa chỉ không được để trống!",
-                }, 
+                },
                 "email": {
                     required: "</br>Email không được để trống!",
                     email: "</br>Email không đúng định dạng!"
-                }, 
+                },
                 "up_hinh": {
                     required: "</br>Hình ảnh không được để trống!",
                 }

@@ -62,4 +62,5 @@ if ($VIEW == "goods/new.php" || $VIEW == "goods/edit.php") {
 }
 
 require "../layout.php";
-
+?>
+<!--  -->

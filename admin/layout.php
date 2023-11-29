@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -14,6 +15,7 @@
     <script src="<?= $CONTENT_URL ?>/js/ckeditor/ckeditor.js"></script>
     <title>QUẢN TRỊ</title>
 </head>
+
 <body>
     <div class="container">
         <!-- LAYOUT LEFT -->
@@ -23,14 +25,14 @@
             </div>
             <div class="sidebar-profile">
                 <?php
-                    if(isset($_SESSION['user'])) { ?>
-                        <div class="profile-pic">
-                            <img src="<?= $CONTENT_URL ?>/images/img-admin/img-users/<?= $_SESSION['user']['hinh'] ?>" alt="">
-                        </div>
-                        <div class="profile-info">
-                            <span>Xin chào</span>
-                            <h3><?= $_SESSION['user']['ten_kh'] ?></h3>
-                        </div>
+                if (isset($_SESSION['user'])) { ?>
+                    <div class="profile-pic">
+                        <img src="<?= $CONTENT_URL ?>/images/img-admin/img-users/<?= $_SESSION['user']['hinh'] ?>" alt="">
+                    </div>
+                    <div class="profile-info">
+                        <span>Xin chào</span>
+                        <h3><?= $_SESSION['user']['ten_kh'] ?></h3>
+                    </div>
                 <?php } ?>
             </div>
             <!-- SIDEBAR MENU -->
@@ -53,7 +55,7 @@
                         <li><a href="<?= $ADMIN_URL ?>/customer" class="link"><i class="fa-solid fa-user"></i>Khách hàng</a></li>
                         <li><a href="<?= $ADMIN_URL ?>/comment" class="link"><i class="fa-solid fa-comment"></i>Bình luận</a></li>
                         <li>
-                            <a href="<?= $ADMIN_URL ?>/bill/list.php" class="link"><i class="fa-sharp fa-solid fa-briefcase"></i>Đơn hàng</a>
+                            <a href="<?= $ADMIN_URL ?>/bill" class="link"><i class="fa-sharp fa-solid fa-briefcase"></i>Đơn hàng</a>
                         </li>
                     </ul>
                 </div>
@@ -79,7 +81,7 @@
                             <li>
                                 <a class="link"><label for="dropdown-product-responsive"><i class="fa-solid fa-bars"></i>Sản phẩm <i class="fa-solid fa-caret-down"></i></label></a>
                                 <input hidden type="checkbox" id="dropdown-product-responsive" class="dropdown-product-responsive">
-                                <!-- CHILD MENU RESPONSIVE -->                      
+                                <!-- CHILD MENU RESPONSIVE -->
                                 <ul class="nav-child-menu-responsive">
                                     <li><a href="<?= $ADMIN_URL ?>/type">Quản lý loại</a></li>
                                     <li><a href="<?= $ADMIN_URL ?>/brand">Quản lý hãng</a></li>
@@ -117,4 +119,5 @@
 
     <script src="<?= $CONTENT_URL ?>/js/js-admin/main.js"></script>
 </body>
+
 </html>

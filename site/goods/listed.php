@@ -27,3 +27,5 @@ if (exist_param("ma_loai")) {
 }
 
 require '../layoutSmall.php';
+?>
+<!--  -->

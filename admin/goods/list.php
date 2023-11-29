@@ -66,7 +66,7 @@
                                             </ul>
                                         </td>
                                     </tr>
-                                    <?php $i++;
+                                <?php $i++;
                                 }
                             } else { ?>
                                 <tr>

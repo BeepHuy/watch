@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
@@ -12,7 +10,7 @@
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="email">Email <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="email"  type="email" placeholder="Mật khẩu" id="email">
+                    <input class="form-control" name="email" type="email" placeholder="Mật khẩu" id="email">
                 </div>
                 <div class="form-btn">
                     <input class="btn-submit" name="btn_forgot" type="submit" value="Lấy lại mật khẩu">
@@ -21,7 +19,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {
@@ -32,7 +29,7 @@
                 },
                 "email": {
                     required: true,
-                    email:true
+                    email: true
                 }
             },
 

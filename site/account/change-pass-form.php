@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
@@ -12,15 +10,15 @@
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="pass-old">Mật khẩu cũ <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau"  type="password" placeholder="Mật khẩu cũ" id="pass-old">
+                    <input class="form-control" name="mat_khau" type="password" placeholder="Mật khẩu cũ" id="pass-old">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="pass-new">Mật khẩu mới <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau2"  type="password" placeholder="Mật khẩu mới" id="pass-new">
+                    <input class="form-control" name="mat_khau2" type="password" placeholder="Mật khẩu mới" id="pass-new">
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="repass">Xác nhận mật khẩu mới <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="mat_khau3"  type="password" placeholder="Xác nhận mật khẩu mới" id="repass">
+                    <input class="form-control" name="mat_khau3" type="password" placeholder="Xác nhận mật khẩu mới" id="repass">
                 </div>
                 <div class="form-btn">
                     <input class="btn-submit" name="btn_change" type="submit" value="Đổi mật khẩu">
@@ -29,7 +27,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {

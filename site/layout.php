@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,6 +11,7 @@
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-site/responsive.css">
     <title>WATCH</title>
 </head>
+
 <body>
     <div class="wrapper">
         <!-- HEADER -->
@@ -35,4 +37,5 @@
     <script src="<?= $CONTENT_URL ?>/js/js-site/slide.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </body>
+
 </html>

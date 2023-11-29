@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html>
 <body>
     <div class="wrap">
         <div class="col">
@@ -10,8 +8,8 @@
                 <div class="content-noList"></div>
                 <div class="content-panel">
                     <br>
-                    <?php 
-                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    <?php
+                    echo "<h5 class='notifications'>$MESSAGE</h5>";
                     ?>
                     <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
@@ -34,7 +32,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {
@@ -48,7 +45,7 @@
             messages: {
                 'ten_loai': {
                     required: "</br>Tên loại không được để trống!"
-                } 
+                }
             }
         });
     });

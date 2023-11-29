@@ -1,17 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="../../content/css/css-site/main.css">
-    <link rel="stylesheet" href="../../content/css/css-site/gridsystem.css">
-    <link rel="stylesheet" href="../../content/css/css-site/responsive.css">
-    <title>WATCH</title>
-</head>
-
 <body>
     <div class="grid">
         <!-- HEADER MENU -->
@@ -22,7 +8,7 @@
             <div class="menu-res l-0">
                 <label for="checkbox-res" class="icon-close-res"><i class="fa-solid fa-xmark"></i></label>
                 <div class="wrapper-search-res">
-                    <form action="/goods/listed.php" method="post" class="search-res" enctype="multipart/form-data">
+                    <form action="<?= $SITE_URL ?>/goods/listed.php" method="post" class="search-res" enctype="multipart/form-data">
                         <input class=ip-search-res name="keywords" type="text" value="" placeholder="Tìm kiếm...">
                         <button class="submit-search-res" type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
                     </form>
@@ -30,31 +16,40 @@
 
                 <!-- MENU RESPONSIVE -->
                 <ul class="main-menu-res">
-                    <li><a href="/main-page?homepage">Trang chủ</a></li>
-                    <li><a href="/main-page?about">Giới thiệu</a></li>
-                    <li><a href="/goods/listed.php?continue_shopping">Sản phẩm</a></li>
-                    <li><a href="/main-page?contact">Liên hệ</a></li>
-                    <li></li>
+                    <li><a href="<?= $SITE_URL ?>/main-page?homepage">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/main-page?about">Giới thiệu</a></li>
+                    <?php
+                    foreach ($types as $type) {
+                        extract($type);
+                        $href = "$SITE_URL/goods/listed.php?ma_loai=$ma_loai"; ?>
+                        <li><a href="<?= $href; ?>"><?= $ten_loai; ?></a></li>
+                    <?php } ?>
+                    <li><a href="<?= $SITE_URL ?>/main-page?contact">Liên hệ</a></li>
+                    <li> <?php require 'login-mobile.php'; ?></li>
                 </ul>
             </div>
             <div class="logo">
-                <a href="../main-page/index.php"><img src="../../content/images/img-admin/logo.png" alt="Logo"></a>
+                <a href="<?= $SITE_URL ?>/main-page?homepage"><img src="<?= $CONTENT_URL ?>/images/img-site/logo.png" alt="Logo"></a>
             </div>
             <div class="header-nav m-0 c-0">
 
                 <!-- MAIN MENU -->
                 <ul class="main-menu">
-                    <li><a href="../main-page/index.php" class="link">Trang chủ</a></li>
-                    <li><a href="../main-page/about.php" class="link">Giới thiệu</a></li>
+                    <li><a href="<?= $SITE_URL ?>/main-page?homepage" class="link">Trang chủ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/main-page?about" class="link">Giới thiệu</a></li>
                     <li>
-                        <a href="../goods/list-allshop.php" class="link">Sản phẩm</a>
+                        <a href="<?= $SITE_URL ?>/goods/listed.php?continue_shopping" class="link">Sản phẩm</a>
                         <!-- CHILD MENU -->
                         <ul class="child-menu">
-                            <li><a href="">Giày Nam</a></li>
-                            <li><a href="">Giày Nữ</a></li>
+                            <?php
+                            foreach ($types as $type) {
+                                extract($type);
+                                $href = "$SITE_URL/goods/listed.php?ma_loai=$ma_loai"; ?>
+                                <li><a href="<?= $href; ?>"><?= $ten_loai; ?></a></li>
+                            <?php } ?>
                         </ul>
                     </li>
-                    <li><a href="../main-page/contact.php" class="link">Liên hệ</a></li>
+                    <li><a href="<?= $SITE_URL ?>/main-page?contact" class="link">Liên hệ</a></li>
                 </ul>
             </div>
 
@@ -65,7 +60,7 @@
                         <a class="icon-search m-0 c-0">
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <div class="wrapper-search">
-                                <form action="/goods/listed.php" method="post" class="search">
+                                <form action="<?= $SITE_URL ?>/goods/listed.php" method="post" class="search">
                                     <input class="ip-search" name="keywords" type="text">
                                     <button class="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
@@ -73,24 +68,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="../goods/show-cart.php" class="icon-cart"><i title="Giỏ hàng" class="fa-sharp fa-solid fa-basket-shopping"></i></a>
+                        <a href="<?= $SITE_URL ?>/goods/cart.php?btn_show_cart" class="icon-cart"><i title="Giỏ hàng" class="fa-sharp fa-solid fa-basket-shopping"></i></a>
                     </li>
                     <li>
-                    <?php
-                        if (isset($_SESSION['user'])) {
-                            require 'login-info.php';
-                        } else {
-                            require 'login-form.php';
-                        }
-                        ?>
+                        <?php require 'login.php'; ?>
                     </li>
                 </ul>
             </div>
         </div>
     </div>
-    <script src="../../content/js/js-site/main.js"></script>
-    <script src="../../content/js/js-site/slide.js"></script>
-    <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
 </body>
-
-</html>

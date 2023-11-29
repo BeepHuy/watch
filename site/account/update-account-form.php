@@ -1,5 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
@@ -40,7 +38,6 @@
         </div>
     </div>
 </body>
-</html>
 
 <script>
     $(document).ready(function() {
@@ -58,7 +55,7 @@
                 },
                 "email": {
                     required: true,
-                    email:true
+                    email: true
                 },
                 "up_hinh": {
                     required: true,
@@ -72,14 +69,14 @@
                 "sdt": {
                     required: "</br>Số điện thoại không được để trống!",
                     number: "</br>Số điện thoại phải là số!"
-                }, 
+                },
                 "dia_chi": {
                     required: "</br>Địa chỉ không được để trống!",
-                }, 
+                },
                 "email": {
                     required: "</br>Email không được để trống!",
                     email: "</br>Email không đúng định dạng!"
-                }, 
+                },
                 "up_hinh": {
                     required: "</br>Hình ảnh không được để trống!",
                 }

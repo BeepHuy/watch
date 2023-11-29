@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,6 +14,7 @@
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-site/responsive.css">
     <title>WATCH</title>
 </head>
+
 <body>
     <div class="wrapper">
         <!-- HEADER -->
@@ -33,4 +35,5 @@
 
     <script src="<?= $CONTENT_URL ?>/js/js-site/main.js"></script>
 </body>
+
 </html>
