@@ -1,3 +1,4 @@
+
 <?php
 require '../../global.php';
 require '../../dao/goods.php';
@@ -36,6 +37,27 @@ if ($VIEW == "goods/new.php" || $VIEW == "goods/edit.php") {
     $loai_select_list = loai_select_all();
     $hang_select_list = hang_select_all();
 }
+if (exist_param("add")) { 
 
-require "../layout.php";
+  $up_hinh = save_file("hinh", "$IMAGE_DIR/img-admin/img-products/"); 
 
+  $hinh = strlen($up_hinh) > 0 ? $up_hinh : 'product.png'; 
+
+  try { 
+
+    san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem); 
+
+    unset($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem); 
+
+  } catch (Exception $exc) { 
+
+    $MESSAGE = "Thêm mới thất bại!"; 
+
+  } 
+
+  $VIEW = header("location: $ROOT_URL/admin/goods/index.php?btn_list"); 
+
+} else { 
+
+  $VIEW = "goods/new.php"; 
+}
