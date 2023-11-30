@@ -77,7 +77,6 @@ if (!empty($_SESSION['cart'])) {
                                                 <td class="remove-product">
                                                     <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')">
                                                         <i class="fa-regular fa-circle-xmark"></i>
-
                                                     </a>
                                                 </td>
                                                 <td class="img-product"><img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh'] ?>" alt=""></td>
