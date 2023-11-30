@@ -75,10 +75,8 @@ if (!empty($_SESSION['cart'])) {
                                             $so_luong = $_SESSION['cart'][$product['ma_sp']]; ?>
                                             <tr class="tr-product">
                                                 <td class="remove-product">
-                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>">
-                                                        <button onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')" style="border: none;background: white;">
-                                                            <i class="fa-regular fa-circle-xmark"></i>
-                                                        </button>
+                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')">
+                                                        <i class="fa-regular fa-circle-xmark"></i>
                                                     </a>
                                                 </td>
                                                 <td class="img-product"><img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh'] ?>" alt=""></td>
