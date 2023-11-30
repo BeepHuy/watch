@@ -74,20 +74,12 @@ if (!empty($_SESSION['cart'])) {
                                             $don_gia = $product['don_gia'] - ($product['don_gia'] * ($product['giam_gia'] / 100));
                                             $so_luong = $_SESSION['cart'][$product['ma_sp']]; ?>
                                             <tr class="tr-product">
-
                                                 <td class="remove-product">
-                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" <button onclick="return confirm('Ban co muon xoa danh muc game nay khong?');">
-                                                        <i class="fa-regular fa-circle-xmark">
+                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')">
+                                                        <i class="fa-regular fa-circle-xmark"></i>
 
-                                                        </i>
-                                                        </button>
                                                     </a>
-
                                                 </td>
-
-
-                                                <!-- <td class="remove-product"><a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>"><i class="fa-regular fa-circle-xmark"></i></a></td> -->
-
                                                 <td class="img-product"><img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh'] ?>" alt=""></td>
                                                 <td class="name-product"><a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>"><?= $product['ten_sp'] ?></a>
                                                     <p class="l-0 m-0">
