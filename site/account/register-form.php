@@ -22,7 +22,10 @@
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="photo">Hình ảnh <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="up_hinh" type="file" id="photo">
+                    <div class="image-user-file">
+                    <input class="form-control" name="up_hinh" type="file" id="photo" onchange="previewImage(this);">
+                    <img id="image-preview" src="#" alt="Preview">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
@@ -44,7 +47,52 @@
         </div>
     </div>
 </body>
+<?php
+if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
+                        echo '<script>
+                            Swal.fire({
+                                title: "Đăng ký thành công!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            setTimeout(function() {
+                                window.location.href = "./login.php?btn_register";;
+                            }, 1000);
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
+          
+                    if (!empty($message) && $message == 'Tên đăng nhập đã tồn tại!') {
+                        echo '<script>
+                            Swal.fire({
+                                title: "Tên đăng nhập đã tồn tại!",
+                                icon: "error",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
+                    ?>
+                    <script>
+    function previewImage(input) {
+        var preview = document.getElementById('image-preview');
+        var file = input.files[0];
+        var reader = new FileReader();
 
+        reader.onload = function (e) {
+            preview.src = e.target.result;
+            preview.style.display = 'block';
+        }
+
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+</script>
 <script>
     $(document).ready(function() {
         $("#form-register").validate({
@@ -78,7 +126,7 @@
                     required: true,
                 },
             },
-
+            
             messages: {
                 "ma_kh": {
                     required: "</br>Tên đăng nhập không dược để trống!"
