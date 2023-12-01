@@ -8,8 +8,23 @@
                 <div class="content-noList"></div>
                 <div class="content-panel">
                     <br>
+
                     <?php
-                    echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    if (!empty($MESSAGE) && $MESSAGE == 'Thêm mới thành công!') {
+                        echo '<script>
+                            Swal.fire({
+                                title: "Thêm mới thành công!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            setTimeout(function() {
+                                window.location.href = "index.php?btn_list";
+                            }, 1500);
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
                     ?>
                     <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
@@ -31,22 +46,21 @@
             </div>
         </div>
     </div>
-</body>
-
-<script>
-    $(document).ready(function() {
-        $("#form").validate({
-            rules: {
-                'ten_loai': {
-                    required: true,
-                }
-            },
-
-            messages: {
-                'ten_loai': {
-                    required: "</br>Tên loại không được để trống!"
-                }
-            }
+    <!-- ... -->
+    <script>
+        $(document).ready(function() {
+            $("#form").validate({
+                rules: {
+                    'ten_loai': {
+                        required: true,
+                    }
+                },
+                messages: {
+                    'ten_loai': {
+                        required: "Tên loại không được để trống!"
+                    }
+                },
+            });
         });
-    });
-</script>
+    </script>
+</body>

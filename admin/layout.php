@@ -8,11 +8,14 @@
     <script src="https://cdn.jsdelivr.net/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.5/jquery.validate.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" type="text/css" href="path/to/toastr.min.css">
+    <script type="text/javascript" src="path/to/toastr.min.js"></script>
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-admin/main.css">
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-admin/form.css">
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-admin/list.css">
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-admin/responsive.css">
     <script src="<?= $CONTENT_URL ?>/js/ckeditor/ckeditor.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <title>QUẢN TRỊ</title>
 </head>
 
