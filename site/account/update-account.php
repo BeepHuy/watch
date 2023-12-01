@@ -12,8 +12,11 @@ if (exist_param("btn_update")) {
     $hinh = $file_name ? $file_name : $hinh;
     try {
         khach_hang_update($ma_kh, $ten_kh, $mat_khau, $hinh, $sdt, $dia_chi, $email, $vai_tro);
-        $MESSAGE = "Cập nhật thông tin thành viên thành công!";
+        $MESSAGE = "Cập nhật thông tin thành công!";
         $_SESSION['user'] = khach_hang_select_by_id($ma_kh);
+        if (isset($MESSAGE) && !empty($MESSAGE)) {
+            echo '<script>var updateSuccess = true;</script>';
+        }
     } catch (Exception $exc) {
         $MESSAGE = "Cập nhật thông tin thành viên thất bại!";
     }
