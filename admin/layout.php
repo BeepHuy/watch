@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-admin/responsive.css">
     <script src="<?= $CONTENT_URL ?>/js/ckeditor/ckeditor.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
     <title>QUẢN TRỊ</title>
 </head>
 

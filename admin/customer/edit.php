@@ -10,7 +10,27 @@
                 </div>
                 <div class="content-noList"></div>
                 <div class="content-panel">
-                    <br>
+                    
+                <br>
+                    <?php
+                    echo "<h5 class='notifications'>$MESSAGE</h5>";
+                     if (!empty($MESSAGE) && $MESSAGE == 'Cập nhật thành công!') {
+                        echo '<script> 
+                        Swal.fire({ 
+                            title: "Cập nhật thành công!", 
+                            icon: "success", 
+                            showConfirmButton: false, 
+                            timer: 1500 
+                        }); 
+                        setTimeout(function() { 
+                            window.location.href = "index.php?btn_list"; 
+                        }, 1500); 
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
+                    ?>
+                    
                     <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
                             <label class="control-label" for="id_customer">Mã khách hàng <strong>*</strong></label>
@@ -65,6 +85,7 @@
 </body>
 
 <script>
+
     $(document).ready(function() {
         $("#form").validate({
             rules: {
