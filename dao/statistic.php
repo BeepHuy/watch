@@ -19,7 +19,8 @@
         $sql = "SELECT san_pham.ma_sp, san_pham.ten_sp,
         COUNT(*) so_luong,
         MIN(binh_luan.thoi_gian_bl) cu_nhat,
-        MAX(binh_luan.thoi_gian_bl) moi_nhat
+        MAX(binh_luan.thoi_gian_bl) moi_nhat,
+        ma_bl
         FROM binh_luan 
         JOIN san_pham ON san_pham.ma_sp=binh_luan.ma_sp 
         GROUP BY san_pham.ma_sp, san_pham.ten_sp
@@ -56,4 +57,6 @@
         $sql = "SELECT COUNT(*) so_luong FROM binh_luan";
         return query_all($sql);
     }
+    // THỐNG KÊ SỐ LƯỢNG BÌNH LUẬN
+
 ?>

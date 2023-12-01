@@ -37,6 +37,8 @@
                                         </div>
                                         <div class="main-comment">
                                             <p><?= $comment['noi_dung'] ?></p>
+                                            <td><a title="Xoá" id="delete" href="/watch/admin/comment/index.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a></td>
+
                                             <!-- <?php
                                                     if (isset($_SESSION['user']) == $comment['ma_kh']) { ?>
                                                         <a href="comment-delete.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $comment['ma_sp'] ?>">Xóa</a>
@@ -44,6 +46,7 @@
                                                     ?> -->
                                         </div>
                                     </div>
+                                    
                                 <?php }
                             } else { ?>
                                 <p class="no-comment">Chưa có đánh giá nào.</p>
@@ -84,4 +87,9 @@
     </div>
 </body>
 
+<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </html>
+
+
+

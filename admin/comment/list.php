@@ -31,7 +31,7 @@
                                         <td><?= $so_luong; ?></td>
                                         <td class="hide"><?= $moi_nhat ?></td>
                                         <td class="hide"><?= $cu_nhat ?></td>
-                                        <td><a title="Chi tiết" href="../comment/index.php?ma_sp=<?= $ma_sp; ?>"><i class="fa-solid fa-circle-info"></i></a></td>
+                                        <td><a title="Chi tiết" href="/watch/admin/comment/index.php?ma_sp=<?= $ma_sp; ?>"><i class="fa-solid fa-circle-info"></i></a></td>
                                     </tr>
                                     <tr class="tr-child">
                                         <td class="td-child" colspan="4">
