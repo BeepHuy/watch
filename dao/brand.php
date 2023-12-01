@@ -1,13 +1,13 @@
 <?php
 require_once '../../pdo.php';
 
-// KIỂM TRA SỰ TỒN TẠI CỦA TÊN Hãng 
+// KIỂM TRA SỰ TỒN TẠI CỦA TÊN Hãng
 if (!function_exists('hang_exist_by_name')) {
     function hang_exist_by_name($ten_hang, $ma_hang = null)
     {
         $sql = "SELECT COUNT(*) FROM hang WHERE ten_hang = ?";
 
-        // Nếu là cập nhật, Hãng bỏ Hãng đang được cập nhật 
+        // Nếu là cập nhật, Hãng bỏ Hãng đang được cập nhật
         if ($ma_hang !== null) {
             $sql .= " AND ma_hang != ?";
             return query_value($sql, $ten_hang, $ma_hang) > 0;
@@ -16,12 +16,12 @@ if (!function_exists('hang_exist_by_name')) {
         return query_value($sql, $ten_hang) > 0;
     }
 }
-// THÊM HÃNG 
+// THÊM HÃNG
 if (!function_exists('hang_insert')) {
     function hang_insert($ten_hang)
     {
         try {
-            // Check if the name already exists 
+            // Check if the name already exists
             if (hang_exist_by_name($ten_hang)) {
                 throw new Exception('Tên hãng đã tồn tại, vui lòng nhập tên hãng khác!');
             }
@@ -33,19 +33,19 @@ if (!function_exists('hang_insert')) {
         }
     }
 }
-// THÊM HÃNG 
-// function hang_insert($ten_hang) 
-// { 
-//   $sql = "INSERT INTO hang(ten_hang) VALUES(?)"; 
-//   return execute($sql, $ten_hang); 
-// } 
+// THÊM HÃNG
+// function hang_insert($ten_hang)
+// {
+//     $sql = "INSERT INTO hang(ten_hang) VALUES(?)";
+//     return execute($sql, $ten_hang);
+// }
 
-// CẬP NHẬT HÃNG 
+// CẬP NHẬT HÃNG
 if (!function_exists('hang_update')) {
     function hang_update($ma_hang, $ten_hang)
     {
         try {
-            // Check if the name already exists excluding the current record 
+            // Check if the name already exists excluding the current record
             if (hang_exist_by_name($ten_hang, $ma_hang)) {
                 throw new Exception('Cập nhật thất bại! Tên hãng đã tồn tại?');
             }
@@ -57,13 +57,13 @@ if (!function_exists('hang_update')) {
         }
     }
 }
-// function hang_update($ma_hang, $ten_hang) 
-// { 
-//   $sql = "UPDATE hang SET ten_hang=? WHERE ma_hang=?"; 
-//   return execute($sql, $ten_hang, $ma_hang); 
-// } 
+// function hang_update($ma_hang, $ten_hang)
+// {
+//     $sql = "UPDATE hang SET ten_hang=? WHERE ma_hang=?";
+//     return execute($sql, $ten_hang, $ma_hang);
+// }
 
-// XOÁ HÃNG 
+// XOÁ HÃNG
 if (!function_exists('hang_delete')) {
     function hang_delete($ma_hang)
     {
@@ -77,7 +77,7 @@ if (!function_exists('hang_delete')) {
         }
     }
 }
-// XOÁ TẤT CẢ HÃNG 
+// XOÁ TẤT CẢ HÃNG
 if (!function_exists('hang_delete_all')) {
     function hang_delete_all()
     {
@@ -86,7 +86,7 @@ if (!function_exists('hang_delete_all')) {
     }
 }
 
-// LẤY TẤT CẢ HÃNG 
+// LẤY TẤT CẢ HÃNG
 if (!function_exists('hang_select_all')) {
     function hang_select_all()
     {
@@ -94,7 +94,7 @@ if (!function_exists('hang_select_all')) {
         return query_all($sql);
     }
 }
-// LẤY HÃNG THEO ID 
+// LẤY HÃNG THEO ID
 if (!function_exists('hang_select_by_id')) {
     function hang_select_by_id($ma_hang)
     {
@@ -103,7 +103,7 @@ if (!function_exists('hang_select_by_id')) {
     }
 }
 
-// KIỂM TRA HÃNG CÓ TỒN TẠI HAY KHÔNG 
+// KIỂM TRA HÃNG CÓ TỒN TẠI HAY KHÔNG
 if (!function_exists('hang_delete')) {
     function hang_exist($ma_hang)
     {
@@ -111,7 +111,7 @@ if (!function_exists('hang_delete')) {
         return query_value($sql, $ma_hang) > 0;
     }
 }
-// TỔNG SỐ LƯỢNG 
+// TỔNG SỐ LƯỢNG
 if (!function_exists('amount_brand')) {
     function amount_brand()
     {
