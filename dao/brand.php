@@ -33,12 +33,6 @@ if (!function_exists('hang_insert')) {
         }
     }
 }
-// THÊM HÃNG
-// function hang_insert($ten_hang)
-// {
-//     $sql = "INSERT INTO hang(ten_hang) VALUES(?)";
-//     return execute($sql, $ten_hang);
-// }
 
 // CẬP NHẬT HÃNG
 if (!function_exists('hang_update')) {
@@ -57,11 +51,6 @@ if (!function_exists('hang_update')) {
         }
     }
 }
-// function hang_update($ma_hang, $ten_hang)
-// {
-//     $sql = "UPDATE hang SET ten_hang=? WHERE ma_hang=?";
-//     return execute($sql, $ten_hang, $ma_hang);
-// }
 
 // XOÁ HÃNG
 if (!function_exists('hang_delete')) {

@@ -3,7 +3,6 @@
         <div class="wrapper-login">
             <form id="form-register" action="register.php" method="post" class="main-login" enctype="multipart/form-data">
                 <h2 class="title-login">Đăng ký</h2>
-                <?php echo "<h5>$MESSAGE</h5>"; ?>
                 <div class="form-group">
                     <label class="label-control" for="username">Tên đăng nhập <strong style="color: red;">*</strong></label>
                     <input class="form-control" name="ma_kh" type="text" placeholder="Tên đăng nhập" id="username">
@@ -23,8 +22,8 @@
                 <div class="form-group">
                     <label class="label-control" for="photo">Hình ảnh <strong style="color: red;">*</strong></label>
                     <div class="image-user-file">
-                    <input class="form-control" name="up_hinh" type="file" id="photo" onchange="previewImage(this);">
-                    <img id="image-preview" src="#" alt="Preview">
+                        <input class="form-control" name="up_hinh" type="file" id="photo" onchange="previewImage(this);">
+                        <img id="image-preview" src="#" alt="Preview">
                     </div>
                 </div>
                 <div class="form-group">
@@ -49,7 +48,7 @@
 </body>
 <?php
 if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
-                        echo '<script>
+    echo '<script>
                             Swal.fire({
                                 title: "Đăng ký thành công!",
                                 icon: "success",
@@ -60,12 +59,12 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
                                 window.location.href = "./login.php?btn_register";;
                             }, 1000);
                         </script>';
-                    } else {
-                        echo "<h5 class='notifications'>$MESSAGE</h5>";
-                    }
-          
-                    if (!empty($message) && $message == 'Tên đăng nhập đã tồn tại!') {
-                        echo '<script>
+} else {
+    echo "<h5 class='notifications'>$MESSAGE</h5>";
+}
+
+if (!empty($message) && $message == 'Tên đăng nhập đã tồn tại!') {
+    echo '<script>
                             Swal.fire({
                                 title: "Tên đăng nhập đã tồn tại!",
                                 icon: "error",
@@ -73,17 +72,17 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
                                 timer: 1500
                             });
                         </script>';
-                    } else {
-                        echo "<h5 class='notifications'>$MESSAGE</h5>";
-                    }
-                    ?>
-                    <script>
+} else {
+    echo "<h5 class='notifications'>$MESSAGE</h5>";
+}
+?>
+<script>
     function previewImage(input) {
         var preview = document.getElementById('image-preview');
         var file = input.files[0];
         var reader = new FileReader();
 
-        reader.onload = function (e) {
+        reader.onload = function(e) {
             preview.src = e.target.result;
             preview.style.display = 'block';
         }
@@ -126,7 +125,7 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
                     required: true,
                 },
             },
-            
+
             messages: {
                 "ma_kh": {
                     required: "</br>Tên đăng nhập không dược để trống!"
