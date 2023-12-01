@@ -36,6 +36,7 @@
     <script src="<?= $CONTENT_URL ?>/js/js-site/main.js"></script>
     <script src="<?= $CONTENT_URL ?>/js/js-site/slide.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
+    
 </body>
 
 </html>

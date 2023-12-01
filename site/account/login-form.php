@@ -20,9 +20,26 @@
                 <p class="register"><a href="<?= $SITE_URL ?>/account/register.php">Đăng ký</a></p>
             </form>
         </div>
+        
     </div>
 </body>
-
+<?php
+if (!empty($MESSAGE) && $MESSAGE == 'Đăng nhập thành công!') {
+                        echo '<script>
+                            Swal.fire({
+                                title: "Đăng nhập thành công!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            setTimeout(function() {
+                                window.location.href = "/watch/index.php?btn_login";;
+                            }, 700);
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
+                    ?>
 <script>
     $(document).ready(function() {
         $("#form-login-main").validate({

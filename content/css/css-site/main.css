@@ -372,7 +372,17 @@ label.error {
     color: red;
     display: contents;
 }
+.image-user-file {
+    position: relative;
+}
 
+.image-user-file #image-preview {
+    position: absolute;
+    bottom: -5px;
+    right: 50%;
+    display: none;
+    height: 130%;
+}
 .form-btn {
     margin-bottom: 15px;
 }

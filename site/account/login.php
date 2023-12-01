@@ -9,7 +9,7 @@ if (exist_param("btn_login")) {
     $user = khach_hang_select_by_id($ma_kh);
     if ($user) {
         if ($user['mat_khau'] == $mat_khau) {
-            $MESSAGE = "Đăng nhập thành công!";
+            
 
             if (exist_param("remember")) {
                 add_cookie("ma_kh", $ma_kh, 30);
@@ -19,9 +19,10 @@ if (exist_param("btn_login")) {
                 delete_cookie("mat_khau");
             }
             $_SESSION["user"] = $user;
-
+            $_SESSION['request_uri'] = "/watch/index.php";
             if (isset($_SESSION['request_uri'])) {
-                header("location: " . $_SESSION['request_uri']);
+                
+                $MESSAGE = 'Đăng nhập thành công!';
             }
         } else {
             $MESSAGE = "Sai mật khẩu!";
