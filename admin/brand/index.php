@@ -10,21 +10,27 @@ if (exist_param("add")) {
     try {
         hang_insert($ten_hang);
         unset($ten_hang, $ma_hang);
+        $MESSAGE = 'Thêm mới thành công!';
+        $VIEW = 'brand/new.php'; // Set the view to the form page 
     } catch (Exception $exc) {
-        $MESSAGE = 'Thêm mới thất bại!';
+        $MESSAGE = $exc->getMessage();
+        $VIEW = 'brand/new.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/brand/index.php?btn_list");
 } else if (exist_param('btn_update')) {
     try {
         hang_update($ma_hang, $ten_hang);
+        $MESSAGE = 'Cập nhật thành công!';
+        $VIEW = 'brand/edit.php';
     } catch (Exception $exc) {
-        $MESSAGE = 'Cập nhật thất bại!';
+        $MESSAGE = $exc->getMessage();
+        $brand = hang_select_by_id($ma_hang); // Retrieve the brand for the edit form 
+        extract($brand);
+        $VIEW = 'brand/edit.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/brand/index.php?btn_list");
 } else if (exist_param('btn_delete')) {
     try {
         hang_delete($ma_hang);
-        $brands = hang_select_all();
+        $types = hang_select_all();
     } catch (Exception $exc) {
         $MESSAGE = 'Xoá thất bại!';
     }
@@ -51,4 +57,6 @@ if (exist_param("add")) {
 
 require '../layout.php';
 ?>
+
+
 <!--  -->
