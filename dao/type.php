@@ -16,8 +16,6 @@ if (!function_exists('loai_exist_by_name')) {
         return query_value($sql, $ten_loai) > 0;
     }
 }
-
-
 // THÊM LOẠI HÀNG
 if (!function_exists('loai_insert')) {
     function loai_insert($ten_loai)

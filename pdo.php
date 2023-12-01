@@ -4,7 +4,7 @@ function connection()
 {
     $user = 'root';
     $pass = '';
-    $conn = new PDO('mysql:host=localhost;dbname=watch', $user, $pass);
+    $conn = new PDO('mysql:host=localhost;dbname=duan1', $user, $pass);
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
     return $conn;
