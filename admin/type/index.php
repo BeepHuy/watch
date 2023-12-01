@@ -10,17 +10,23 @@ if (exist_param("add")) {
     try {
         loai_insert($ten_loai);
         unset($ten_loai, $ma_loai);
+        $MESSAGE = 'Thêm mới thành công!';
+        $VIEW = 'type/new.php';  // Set the view to the form page
     } catch (Exception $exc) {
-        $MESSAGE = 'Thêm mới thất bại!';
+        $MESSAGE = $exc->getMessage();
+        $VIEW = 'type/new.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/type/index.php?btn_list");
 } else if (exist_param('btn_update')) {
     try {
         loai_update($ma_loai, $ten_loai);
+        $MESSAGE = 'Cập nhật thành công!';
+        $VIEW = 'type/edit.php';
     } catch (Exception $exc) {
-        $MESSAGE = 'Cập nhật thát bại!';
+        $MESSAGE = $exc->getMessage();
+        $type = loai_select_by_id($ma_loai);  // Retrieve the type for the edit form
+        extract($type);
+        $VIEW = 'type/edit.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/type/index.php?btn_list");
 } else if (exist_param('btn_delete')) {
     try {
         loai_delete($ma_loai);
@@ -50,5 +56,3 @@ if (exist_param("add")) {
 }
 
 require '../layout.php';
-?>
-<!--  -->
