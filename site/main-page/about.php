@@ -1,6 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<head>
+
+    <title>Giới Thiệu</title>
+</head>
+
 <body>
     <div class="about">
         <div class="grid wide">

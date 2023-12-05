@@ -47,6 +47,7 @@ if (!empty($_SESSION['cart'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+<title>Giỏ Hàng</title>
 
 <body>
     <div class="show-cart">
@@ -90,7 +91,7 @@ if (!empty($_SESSION['cart'])) {
                                                 <td class="amount-product">
                                                     <div class="quantity">
                                                         <!-- <input type="button" value="-" class="btn-minus-quantity is-form"> -->
-                                                        <input type="number" name="quantity[<?= $product['ma_sp'] ?>]" class="ip-quantity" id="quantity" step="1" min="0" max="9999" value="<?= $so_luong; ?>">
+                                                        <input type="number" name="quantity[<?= $product['ma_sp'] ?>]" class="ip-quantity" id="quantity" step="1" min="0" max="50" value="<?= $so_luong; ?>">
                                                         <!-- <input type="button" value="+" class="btn-plus-quantity is-form"> -->
                                                     </div>
                                                 </td>

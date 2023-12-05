@@ -40,6 +40,7 @@ if (isset($_GET['order'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+<title>Thanh Toán Đơn Hàng</title>
 
 <body>
     <div class="form-cart">

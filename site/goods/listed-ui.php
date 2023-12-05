@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Toàn Bộ <?php if (count($products) > 0) echo $products[0]['ten_loai']; ?></title>
 
 <body>
     <div class="grid wide">
