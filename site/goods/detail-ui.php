@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+<title>Chi Tiết <?= $ten_sp ?></title>
 
 <body>
     <div class="detail">

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Watch</title>
 
 <body>
     <div class="grid wide">
