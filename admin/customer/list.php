@@ -1,3 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Page Title</title>
+    <!-- Thêm link CSS của SweetAlert2 -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
+</head>
 <body>
     <div class="wrap">
         <div class="col">
@@ -84,45 +93,79 @@
             </footer>
         </div>
     </div>
-</body>
 
-<script>
-    // CHECK DELETE
-    const checkDelete = document.querySelectorAll("#delete");
-    checkDelete.forEach(function(checkDelete) {
-        checkDelete.addEventListener('click', function(event) {
-            const mess = confirm("Bạn có chắc chắn muốn xoá khách hàng này không?");
-            if (mess == false) {
-                event.preventDefault();
-            }
-        })
-    })
-
-    // CHECK DELETE ALL
-    const checkDeleteAll = document.querySelector("#delete_all");
-    checkDeleteAll.addEventListener('click', function(event) {
-        const mess = confirm("Bạn có chắc chắn muốn xoá tất cả không?");
-        if (mess == false) {
-            event.preventDefault();
-        }
-    })
-
-    // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
-    const trChilds = document.querySelectorAll('.tr-child');
-    const iconSeeMores = document.querySelectorAll('.see-more');
-    const iconNoSeeMores = document.querySelectorAll('.no-see-more');
-    for (let i = 0; i < iconSeeMores.length; i++) {
-        iconSeeMores[i].addEventListener('click', function() {
-            iconSeeMores[i].classList.remove('show');
-            iconSeeMores[i].classList.add('hide');
-            trChilds[i].classList.add('tr-child-show');
-            iconNoSeeMores[i].classList.add('show');
-            iconNoSeeMores[i].addEventListener('click', function() {
-                trChilds[i].classList.remove('tr-child-show');
-                iconNoSeeMores[i].classList.remove('show');
-                iconNoSeeMores[i].classList.add('hide');
-                iconSeeMores[i].classList.add('show');
-            })
+    <!-- Thêm script JS của SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
+    <script>
+        // CHECK DELETE
+        const checkDelete = document.querySelectorAll("#delete");
+        checkDelete.forEach(function (checkDelete) {
+            checkDelete.addEventListener('click', function (event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định
+                Swal.fire({
+                    title: 'Xác nhận xoá',
+                    text: 'Bạn có chắc chắn muốn xoá khách hàng này không?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Đồng ý',
+                    cancelButtonText: 'Hủy bỏ',
+                    timer: 5000
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Hành động mặc định khi Đồng ý
+                        window.location.href = checkDelete.getAttribute('href');
+                    } else {
+                        // Người dùng đã chọn Hủy bỏ, có thể thực hiện các hành động khác ở đây (nếu cần)
+                    }
+                });
+            });
         });
-    }
-</script>
+
+        // CHECK DELETE ALL
+        const checkDeleteAll = document.querySelector("#delete_all");
+        checkDeleteAll.addEventListener('click', function (event) {
+            // Sử dụng SweetAlert2 thay vì confirm
+            event.preventDefault(); // Ngăn chặn hành động mặc định
+            Swal.fire({
+                title: 'Xác nhận xoá',
+                text: 'Bạn có chắc chắn muốn xoá tất cả không?',
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Đồng ý',
+                cancelButtonText: 'Hủy bỏ',
+                timer: 5000
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    // Hành động mặc định khi Đồng ý
+                    window.location.href = checkDeleteAll.getAttribute('href');
+                } else {
+                    // Người dùng đã chọn Hủy bỏ, có thể thực hiện các hành động khác ở đây (nếu cần)
+                }
+            });
+        });
+
+        // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
+        const trChilds = document.querySelectorAll('.tr-child');
+        const iconSeeMores = document.querySelectorAll('.see-more');
+        const iconNoSeeMores = document.querySelectorAll('.no-see-more');
+        for (let i = 0; i < iconSeeMores.length; i++) {
+            iconSeeMores[i].addEventListener('click', function () {
+                iconSeeMores[i].classList.remove('show');
+                iconSeeMores[i].classList.add('hide');
+                trChilds[i].classList.add('tr-child-show');
+                iconNoSeeMores[i].classList.add('show');
+                iconNoSeeMores[i].addEventListener('click', function () {
+                    trChilds[i].classList.remove('tr-child-show');
+                    iconNoSeeMores[i].classList.remove('show');
+                    iconNoSeeMores[i].classList.add('hide');
+                    iconSeeMores[i].classList.add('show');
+                })
+            });
+        }
+    </script>
+</body>
+</html>
