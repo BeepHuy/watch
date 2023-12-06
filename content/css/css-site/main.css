@@ -641,12 +641,14 @@ label.error {
     margin: 10px;
     border-radius: 15px;
     padding: 20px 20px 10px 20px;
+    border: 1px solid black;
     position: relative;
     max-height: 330px;
     min-height: 328px;
 }
 
 .content-product-item:hover {
+    border: none;
     transform: translateY(-1px);
     box-shadow: 0 0.1rem 1.5rem rgb(181, 180, 180);
 }
