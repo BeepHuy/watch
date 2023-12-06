@@ -66,7 +66,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <div class="wrapper-search">
                                 <form action="/goods/listed.php" method="post" class="search">
-                                    <input class="ip-search" name="keywords" type="text">
+                                    <input class="ip-search" name="keywords" type="text" placeholder="Tìm kiếm...">
                                     <button class="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                             </div>
@@ -88,6 +88,7 @@
             </div>
         </div>
     </div>
+    <script src="../../content/js/search-header.js"></script>
     <script src="../../content/js/js-site/main.js"></script>
     <script src="../../content/js/js-site/slide.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.1.js" integrity="sha256-3zlB5s2uwoUzrXK3BT7AX3FyvojsraNFxCc2vC/7pNI=" crossorigin="anonymous"></script>
