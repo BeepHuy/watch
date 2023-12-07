@@ -2,9 +2,9 @@
     display: none;
 }
 
-.confirmModal .modal .modal-content {
+.modal .modal-content {
+    z-index: 100;
     box-shadow: 0px 2px 5px 5px #d0fafd8a;
-    z-index: 25;
     border: 1px solid #eeee;
     width: 450px;
     height: 150px;

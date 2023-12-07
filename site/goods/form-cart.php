@@ -50,57 +50,69 @@ if (isset($_GET['order'])) {
                     <div class="col l-12 m-12 c-12">
                         <?php
                         if (!isset($_SESSION['user'])) { ?>
-                            <p class="user-have-account">Đăng nhập để tiến hành thanh toán! <a href="<?= $SITE_URL ?>/account/login.php">Ấn vào đây để đăng nhập</a></p>
+                            <p class="user-have-account"><a href="<?= $SITE_URL ?>/account/login.php">
+                                    Đăng nhập để thanh toán <i class="fas fa-user"></i>
+                                </a> |
+                                <a href="<?= $SITE_URL ?>/account/register.php" class="user-have-account">
+                                    Đăng ký <i class="fa-solid fa-pen-to-square"></i>
+                                </a>
+                            </p>
                         <?php } ?>
                     </div>
                 </div>
                 <form id="form-cart" action="cart.php?order=submit" class="form-checkout" method="post">
                     <div class="row no-gutters">
                         <div class="col l-7 m-12 c-12">
-                            <div class="wrapper-custommer-detail">
-                                <div class="customer-detail">
-                                    <h3>Thông tin thanh toán</h3>
-                                    <?php if (isset($_SESSION['user'])) { ?>
-                                        <div class="form-checkout-group">
-                                            <!-- <input type="text" hidden name="ma_kh" id="ten_kh" value="<?= $_SESSION['user']['ma_kh'] ?>"> -->
-                                            <label for="ten_kh">Tên <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="ten_kh" id="ten_kh" value="<?= $_SESSION['user']['ten_kh'] ?>">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="sdt" id="sdt" value="">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="dia_chi">Địa chỉ <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="dia_chi" id="dia_chi" value="">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="email">Email <strong style="color: red;">*</strong></label>
-                                            <input type="email" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>">
-                                        </div>
-
-                                    <?php } else { ?>
-                                        <div class="form-checkout-group">
-                                            <!-- <input type="text" hidden name="ma_kh" value="khách chưa đăng nhập"> -->
-                                            <label for="ten_kh">Tên <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="ten_kh" id="ten_kh">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="sdt" id="sdt">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="dia_chi">Địa chỉ <strong style="color: red;">*</strong></label>
-                                            <input type="text" name="dia_chi" id="dia_chi">
-                                        </div>
-                                        <div class="form-checkout-group">
-                                            <label for="email">Email <strong style="color: red;">*</strong></label>
-                                            <input type="email" name="email" id="email">
-                                        </div>
-                                    <?php } ?>
+                            <?php if (isset($_SESSION['user'])) { ?>
+                                <div class="wrapper-custommer-detail">
+                                    <div class="customer-detail">
+                                        <h3>Thông tin thanh toán</h3>
+                                        <?php if (isset($_SESSION['user'])) { ?>
+                                            <div class="form-checkout-group">
+                                                <!-- <input type="text" hidden name="ma_kh" id="ten_kh" value="<?= $_SESSION['user']['ma_kh'] ?>"> -->
+                                                <label for="ten_kh">Tên <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="ten_kh" id="ten_kh" value="<?= $_SESSION['user']['ten_kh'] ?>">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="sdt" id="sdt" value="">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="dia_chi">Địa chỉ <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="dia_chi" id="dia_chi" value="">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="email">Email <strong style="color: red;">*</strong></label>
+                                                <input type="email" name="email" id="email" value="<?= $_SESSION['user']['email'] ?>">
+                                            </div>
+                                        <?php } else { ?>
+                                            <div class="form-checkout-group">
+                                                <!-- <input type="text" hidden name="ma_kh" value="khách chưa đăng nhập"> -->
+                                                <label for="ten_kh">Tên <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="ten_kh" id="ten_kh">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="sdt" id="sdt">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="dia_chi">Địa chỉ <strong style="color: red;">*</strong></label>
+                                                <input type="text" name="dia_chi" id="dia_chi">
+                                            </div>
+                                            <div class="form-checkout-group">
+                                                <label for="email">Email <strong style="color: red;">*</strong></label>
+                                                <input type="email" name="email" id="email">
+                                            </div>
+                                        <?php } ?>
+                                    </div>
                                 </div>
-                            </div>
-                            <a href="<?= $SITE_URL ?>/account/register.php" class="new-account">Tạo tài khoản mới?</a>
+                            <?php } else { ?>
+                                <div style="text-align:center;">
+                                    <img src="<?= $CONTENT_URL ?>/images/img-site/payment-method.png " alt="" width="350px" height="350px">
+                                </div>
+
+
+                            <?php } ?>
                         </div>
                         <div class="col l-5 m-12 c-12">
                             <div class="wrapper-your-bill">
@@ -135,17 +147,23 @@ if (isset($_GET['order'])) {
                                         <tfoot>
                                             <tr class="cart-subtotal">
                                                 <th>Tạm tính</th>
-                                                <td class="product-total-your-bill"><?= number_format($tong, 0, '.', ',') ?><span style="text-decoration: underline;">đ</span></td>
+                                                <td class="product-total-your-bill">
+                                                    <?= number_format($tong, 0, '.', ',') ?><span style="text-decoration: underline;">đ</span>
+                                                </td>
                                             </tr>
                                             <tr class="order-total">
                                                 <th>Tổng</th>
-                                                <td class="product-total-your-bill"><?= number_format($tong, 0, '.', ',') ?><span style="text-decoration: underline;">đ</span></td>
+                                                <td class="product-total-your-bill">
+                                                    <?= number_format($tong, 0, '.', ',') ?><span style="text-decoration: underline;">đ</span>
+                                                </td>
                                             </tr>
                                         </tfoot>
                                     </table>
-                                    <div class="btn-order">
-                                        <button type="submit" name="order_click">Đặt hàng</button>
-                                    </div>
+                                    <?php if (isset($_SESSION['user'])) { ?>
+                                        <div class="btn-order">
+                                            <button type="submit" name="order_click">Đặt hàng</button>
+                                        </div>
+                                    <?php } ?>
                                 </div>
                             </div>
                         </div>
