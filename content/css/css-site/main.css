@@ -1359,7 +1359,7 @@ td {
 }
 
 .name-product>a {
-    color: #666;
+    color: #666; 
 }
 
 .tb-form-show-cart tr.tr-product>.name-product>a:hover {
