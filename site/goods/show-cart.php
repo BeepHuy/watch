@@ -49,6 +49,61 @@ if (!empty($_SESSION['cart'])) {
 <html lang="en">
 <title>Giỏ Hàng</title>
 
+<head>
+    <style>
+        .modal__overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            background: rgba(0, 0, 0, 0.7);
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal {
+            /* display: none; */
+            padding: 20px;
+            background-color: #fff;
+            padding: 20px 30px;
+            position: relative;
+            top: 40%;
+            width: 30%;
+            margin: 0 auto;
+        }
+
+        .modal-text {
+            margin: 20px 0;
+        }
+
+        .modal-button {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .modal-true,
+        .modal-false {
+            padding: 4px 6px;
+            cursor: pointer;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 8px;
+            cursor: pointer;
+            color: black;
+            font-size: 1.2rem;
+            border: none;
+        }
+    </style>
+</head>
+
 <body>
     <div class="show-cart">
         <div class="grid wide">
@@ -75,12 +130,61 @@ if (!empty($_SESSION['cart'])) {
                                             $don_gia = $product['don_gia'] - ($product['don_gia'] * ($product['giam_gia'] / 100));
                                             $so_luong = $_SESSION['cart'][$product['ma_sp']]; ?>
                                             <tr class="tr-product">
-                                                <td class="remove-product">
+                                                <!-- <td class="remove-product">
                                                     <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')">
                                                         <i class="fa-regular fa-circle-xmark"></i>
                                                     </a>
+                                                </td> -->
+                                                <td class="remove-product">
+                                                    <a href="#" onclick="openModal(<?= $product['ma_sp'] ?>)">
+                                                        <i class="fa-regular fa-circle-xmark"></i>
+                                                    </a>
                                                 </td>
-                                                <td class="img-product"><img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh'] ?>" alt=""></td>
+                                                <div class="modal__overlay" id="myModal">
+                                                    <div class="modal">
+                                                        <p class="modal-text">Bạn chắc chắn muốn xóa sản phẩm này không?</p>
+                                                        <div class="modal-button">
+                                                            <button class="modal-true" onclick="confirmDelete()">Xác nhận</button>
+                                                            <button class="modal-false" onclick="closeModal()">Hủy</button>
+                                                        </div>
+                                                        <button class="modal-close" onClick="closeModal">X</button>
+                                                    </div>
+                                                </div>
+                                                <script>
+                                                    function openModal(productId) {
+                                                        // Hiển thị modal khi nhấn nút xóa
+                                                        document.getElementById('myModal').style.display = 'block';
+
+                                                        // Lưu id sản phẩm vào một trường ẩn để sử dụng khi xác nhận xóa
+                                                        document.getElementById('productToDelete').value = productId;
+                                                    }
+
+                                                    function closeModal() {
+                                                        // Ẩn modal khi nhấn nút Hủy
+                                                        document.getElementById('myModal').style.display = 'none';
+                                                    }
+
+                                                    function confirmDelete() {
+                                                        var productId = document.getElementById('productToDelete').value;
+
+                                                        // Sử dụng Ajax để gửi yêu cầu xóa sản phẩm
+                                                        var xhr = new XMLHttpRequest();
+                                                        xhr.onreadystatechange = function() {
+                                                            if (xhr.readyState == 4 && xhr.status == 200) {
+                                                                // Xử lý phản hồi từ máy chủ (nếu cần)
+                                                                // Có thể làm điều gì đó sau khi xóa thành công, chẳng hạn như làm mới trang hoặc cập nhật danh sách sản phẩm.
+                                                            }
+                                                        };
+                                                        xhr.open('GET', 'cart.php?action=delete&id=' + productId, true);
+                                                        xhr.send();
+
+                                                        closeModal(); // Đóng modal sau khi xác nhận xóa
+                                                    }
+                                                </script>
+                                                <input type="hidden" id="productToDelete" value="">
+                                                <td class="img-product">
+                                                    <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $product['hinh'] ?>" alt="">
+                                                </td>
                                                 <td class="name-product"><a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>"><?= $product['ten_sp'] ?></a>
                                                     <p class="l-0 m-0">
                                                         <span class="amount-product-mobile"><?= $so_luong; ?> x</span>
