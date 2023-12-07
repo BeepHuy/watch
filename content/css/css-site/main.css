@@ -1351,15 +1351,13 @@ td {
 
 .tb-form-show-cart tr.tr-product>td {
     border-bottom: 1px solid #ececec;
-    white-space: wrap;
+    white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
 }
 
 .name-product>a {
-    color: #e91111;
-    width: 100px;
-    overflow: hidden;   
+    color: #666; 
 }
 
 .tb-form-show-cart tr.tr-product>.name-product>a:hover {
@@ -1446,7 +1444,6 @@ td {
 }
 
 .amount-show-cart {
-    width: 100px;
     padding-left: 30px;
 }
 
