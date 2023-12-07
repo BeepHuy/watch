@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Page Title</title>
-    <!-- Thêm link CSS của SweetAlert2 -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.min.css">
-</head>
 <body>
     <div class="wrap">
         <div class="col">
@@ -93,79 +84,66 @@
             </footer>
         </div>
     </div>
+</body>
 
-    <!-- Thêm script JS của SweetAlert2 -->
-    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.18/dist/sweetalert2.all.min.js"></script>
-    <script>
+<!-- Thêm modal HTML vào cuối thẻ <body> -->
+<div class="confirmModal">
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button id="confirmDelete">Xác nhận</button>
+            <button id="cancelDelete">Hủy</button>
+        </div>
+    </div>
+</div>
+
+<!-- Thêm mã JavaScript vào cuối thẻ <body> -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
         // CHECK DELETE
         const checkDelete = document.querySelectorAll("#delete");
-        checkDelete.forEach(function (checkDelete) {
-            checkDelete.addEventListener('click', function (event) {
-                event.preventDefault(); // Ngăn chặn hành động mặc định
-                Swal.fire({
-                    title: 'Xác nhận xoá',
-                    text: 'Bạn có chắc chắn muốn xoá khách hàng này không?',
-                    icon: 'warning',
-                    showCancelButton: true,
-                    confirmButtonColor: '#3085d6',
-                    cancelButtonColor: '#d33',
-                    confirmButtonText: 'Đồng ý',
-                    cancelButtonText: 'Hủy bỏ',
-                    timer: 5000
-                }).then((result) => {
-                    if (result.isConfirmed) {
-                        // Hành động mặc định khi Đồng ý
-                        window.location.href = checkDelete.getAttribute('href');
-                    } else {
-                        // Người dùng đã chọn Hủy bỏ, có thể thực hiện các hành động khác ở đây (nếu cần)
-                    }
+        checkDelete.forEach(function(checkDelete) {
+            checkDelete.addEventListener('click', function(event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn có muốn xoá * khách hàng * không?';
+
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDelete.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
                 });
             });
         });
 
         // CHECK DELETE ALL
         const checkDeleteAll = document.querySelector("#delete_all");
-        checkDeleteAll.addEventListener('click', function (event) {
-            // Sử dụng SweetAlert2 thay vì confirm
-            event.preventDefault(); // Ngăn chặn hành động mặc định
-            Swal.fire({
-                title: 'Xác nhận xoá',
-                text: 'Bạn có chắc chắn muốn xoá tất cả không?',
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Đồng ý',
-                cancelButtonText: 'Hủy bỏ',
-                timer: 5000
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Hành động mặc định khi Đồng ý
-                    window.location.href = checkDeleteAll.getAttribute('href');
-                } else {
-                    // Người dùng đã chọn Hủy bỏ, có thể thực hiện các hành động khác ở đây (nếu cần)
-                }
+        checkDeleteAll.addEventListener('click', function(event) {
+            event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+
+            // Hiển thị modal
+            const modal = document.getElementById('confirmationModal');
+            const modalText = document.getElementById('modalText');
+            modal.style.display = 'block';
+            modalText.innerHTML = 'Bạn có chắc chắn muốn xoá tất cả không?';
+
+            // Xác nhận xoá khi nút xác nhận được nhấn
+            document.getElementById('confirmDelete').addEventListener('click', function() {
+                window.location.href = checkDeleteAll.href;
+            });
+
+            // Ẩn modal khi nút Hủy được nhấn
+            document.getElementById('cancelDelete').addEventListener('click', function() {
+                modal.style.display = 'none';
             });
         });
-
-        // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
-        const trChilds = document.querySelectorAll('.tr-child');
-        const iconSeeMores = document.querySelectorAll('.see-more');
-        const iconNoSeeMores = document.querySelectorAll('.no-see-more');
-        for (let i = 0; i < iconSeeMores.length; i++) {
-            iconSeeMores[i].addEventListener('click', function () {
-                iconSeeMores[i].classList.remove('show');
-                iconSeeMores[i].classList.add('hide');
-                trChilds[i].classList.add('tr-child-show');
-                iconNoSeeMores[i].classList.add('show');
-                iconNoSeeMores[i].addEventListener('click', function () {
-                    trChilds[i].classList.remove('tr-child-show');
-                    iconNoSeeMores[i].classList.remove('show');
-                    iconNoSeeMores[i].classList.add('hide');
-                    iconSeeMores[i].classList.add('show');
-                })
-            });
-        }
-    </script>
-</body>
-</html>
+    });
+</script>

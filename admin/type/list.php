@@ -80,7 +80,7 @@
                 const modal = document.getElementById('confirmationModal');
                 const modalText = document.getElementById('modalText');
                 modal.style.display = 'block';
-                modalText.innerHTML = 'Bạn có muốn xoá *Loại* <?= $ten_loai ?> không?';
+                modalText.innerHTML = 'Bạn có muốn xoá *Loại* không?';
 
                 // Xác nhận xoá khi nút xác nhận được nhấn
                 document.getElementById('confirmDelete').addEventListener('click', function() {
