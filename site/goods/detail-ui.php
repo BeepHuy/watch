@@ -19,10 +19,10 @@
                                 <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="imge-detailMain">
                             </div>
                             <div class="mySlides fade">
-                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="imge-detailMain">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh_mota1 ?>" alt="" class="imge-detailMain">
                             </div>
                             <div class="mySlides fade">
-                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="imge-detailMain">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh_mota2 ?>" alt="" class="imge-detailMain">
                             </div>
                         </div>
                         <div style="text-align: center;">
@@ -30,10 +30,10 @@
                                 <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="detail-imagess">
                             </span>
                             <span class="dot" onclick="currentSlide(2)">
-                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="detail-imagess">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh_mota1 ?>" alt="" class="detail-imagess">
                             </span>
                             <span class="dot" onclick="currentSlide(3)">
-                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh ?>" alt="" class="detail-imagess">
+                                <img src="<?= $CONTENT_URL ?>/images/img-admin/img-products/<?= $hinh_mota2 ?>" alt="" class="detail-imagess">
                             </span>
                         </div>
 

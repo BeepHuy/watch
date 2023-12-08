@@ -10,10 +10,15 @@ extract($_REQUEST);
 
 if (exist_param("add")) {
     $up_hinh = save_file("hinh", "$IMAGE_DIR/img-admin/img-products/");
+    $hinh_mota1 = isset($_FILES['hinh_mota1']) ? save_file("hinh_mota1", "$IMAGE_DIR/img-admin/img-products/") : '';
+    $hinh_mota2 = isset($_FILES['hinh_mota2']) ? save_file("hinh_mota2", "$IMAGE_DIR/img-admin/img-products/") : '';
     $hinh = strlen($up_hinh) > 0 ? $up_hinh : 'product.png';
+    // $hinh_mota1 = strlen($up_hinh1) > 0 ? $up_hinh1 : 'product.png';
+    // $hinh_mota1 = strlen($up_hinh2) > 0 ? $up_hinh2 : 'product.png';
+
     try {
-        san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
-        unset($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
+        san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
+        unset($ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
         $MESSAGE = 'Thêm mới thành công!';
         $VIEW = 'goods/new.php';
     } catch (Exception $exc) {
@@ -22,9 +27,14 @@ if (exist_param("add")) {
     }
 } else if (exist_param("btn_update")) {
     $up_hinh = save_file("up_hinh", "$IMAGE_DIR/img-admin/img-products/");
+    $hinh_mota1 = isset($_FILES['hinh_mota1']) ? save_file("hinh_mota1", "$IMAGE_DIR/img-admin/img-products/") : '';
+    $hinh_mota2 = isset($_FILES['hinh_mota2']) ? save_file("hinh_mota2", "$IMAGE_DIR/img-admin/img-products/") : '';
     $hinh = strlen($up_hinh) > 0 ? $up_hinh : $hinh;
+    $hinh_mota1 = strlen($hinh_mota1 ?? '') > 0 ? $hinh_mota1 : 'product.png';
+    $hinh_mota2 = strlen($hinh_mota2 ?? '') > 0 ? $hinh_mota2 : 'product.png';
+
     try {
-        san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai);
+        san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai);
         $MESSAGE = 'Cập nhật thành công!';
         $VIEW = 'goods/edit.php';
     } catch (Exception $exc) {

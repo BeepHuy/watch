@@ -10,11 +10,8 @@ if (exist_param("ma_loai")) {
     $types = loai_select_all();
     $VIEW = "goods/listed-ui.php";
 } else if (exist_param("keywords")) {
-    // Trim white space 2 ends of input
-    $keywords = trim($_POST["keywords"]);
-
-    // Remove special characters using a regular expression
     $keywords = preg_replace('/[^a-zA-Z0-9\s]/', '', $keywords);
+    $keywords = trim($_POST["keywords"]);
 
     $products = san_pham_select_keyword($keywords);
     $types = loai_select_all();

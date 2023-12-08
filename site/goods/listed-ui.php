@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html>
-<title>Toàn Bộ <?php if (count($products) > 0) echo $products[0]['ten_loai']; ?></title>
+
+<head>
+    <title>Toàn Bộ <?php if (count($products) > 0) echo $products[0]['ten_loai']; ?></title>
+</head>
 
 <body>
     <div class="grid wide">
@@ -10,11 +13,21 @@
             <span class="root-type-name"><?php if (count($products) > 0) echo $products[0]['ten_loai']; ?></span>
         </div>
         <div class="gap-element" style="padding-top: 50px;"></div>
+
         <div class="row no-gutters container-content">
             <?php
-            if (count($products) > 0) { ?>
-                <?php
-                foreach ($products as $product) { ?>
+            $productsPerPage = 8;
+            $totalProducts = count($products);
+            $totalPages = ceil($totalProducts / $productsPerPage);
+            $currentPage = isset($_GET['page']) ? max(1, min($totalPages, intval($_GET['page']))) : 1;
+
+            $start = ($currentPage - 1) * $productsPerPage;
+            $end = min($start + $productsPerPage, $totalProducts);
+
+            if ($totalProducts > 0) {
+                for ($i = $start; $i < $end; $i++) {
+                    $product = $products[$i];
+            ?>
                     <div class="col l-3 m-3 c-6" id="col-product">
                         <a href="<?= $SITE_URL ?>/goods/detail.php?ma_sp=<?= $product['ma_sp'] ?>" class="product-item">
                             <div class="content-product-item">
@@ -43,11 +56,33 @@
                                 </div>
                             </div>
                         </a>
-                    </div> <?php }
-                    } else { ?>
+                    </div>
+                <?php
+                }
+            } else {
+                ?>
+                <p class="list-product-empty">Không tìm thấy sản phẩm nào!</p>
+            <?php
+            }
+            ?>
         </div>
-        <p class="list-product-empty">Không tìm thấy sản phẩm nào!</p>
-    <?php } ?>
+
+        <!-- Thêm phân trang -->
+        <div class="pagination">
+            <?php if ($totalPages > 1) : ?>
+                <?php if ($currentPage > 1) : ?>
+                    <a href="?page=<?= $currentPage - 1 ?>&ma_loai=<?= $ma_loai ?>">Prev</a>
+                <?php endif; ?>
+
+                <?php for ($i = 1; $i <= $totalPages; $i++) : ?>
+                    <a href="?page=<?= $i ?>&ma_loai=<?= $ma_loai ?>" <?= $i == $currentPage ? 'class="active"' : '' ?>><?= $i ?></a>
+                <?php endfor; ?>
+
+                <?php if ($currentPage < $totalPages) : ?>
+                    <a href="?page=<?= $currentPage + 1 ?>&ma_loai=<?= $ma_loai ?>">Next</a>
+                <?php endif; ?>
+            <?php endif; ?>
+        </div>
     </div>
 </body>
 

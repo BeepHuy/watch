@@ -50,6 +50,18 @@
                             <input type="file" class="form-control" name="up_hinh" id="pic_product"> <br>
                         </div>
                         <span class="update-pic"><?= $hinh ?></span>
+
+                        <div class="form-group">
+                            <label class="control-label" for="pic_product">Hình ảnh mota1<strong>*</strong></label>
+                            <input type="file" class="form-control" name="hinh_mota1" id="pic_product1"> <br>
+                        </div>
+                        <span class="update-pic"><?= $hinh_mota1 ?></span>
+
+                        <div class="form-group">
+                            <label class="control-label" for="pic_product">Hình ảnh mota2 <strong>*</strong></label>
+                            <input type="file" class="form-control" name="hinh_mota2" id="pic_product2"> <br>
+                        </div>
+                        <span class="update-pic"><?= $hinh_mota2 ?></span>
                         <div class="form-group">
                             <label class="control-label" for="id_brand">Mã hãng <strong>*</strong></label>
                             <select name="ma_hang" id="id_brand">
@@ -118,6 +130,12 @@
                 "hinh": {
                     required: true,
                 },
+                "hinh_mota1": {
+                    required: true,
+                },
+                "hinh_mota2": {
+                    required: true,
+                },
             },
 
             messages: {
@@ -137,6 +155,12 @@
                 },
                 "hinh": {
                     required: "</br>Hình ảnh không được để trống!"
+                },
+                "hinh_mota1": {
+                    required: "</br>Hình 1 ảnh không được để trống!"
+                },
+                "hinh_mota2": {
+                    required: "</br>Hình 2 ảnh không được để trống!"
                 }
             }
         });

@@ -18,14 +18,14 @@ if (!function_exists('san_pham_exist_by_name')) {
 }
 // THÊM SẢN PHẨM
 if (!function_exists('san_pham_insert')) {
-    function san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem)
+    function san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem)
     {
         try {
             if (san_pham_exist_by_name($ten_sp)) {
                 throw new Exception('Tên sản phẩm đã tồn tại, vui lòng nhập tên sản phẩm khác!');
             }
-            $sql = "INSERT INTO san_pham(ten_sp, don_gia, giam_gia, hinh, mo_ta, ma_hang, ma_loai, so_luot_xem) VALUES (?,?,?,?,?,?,?,?)";
-            execute($sql, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
+            $sql = "INSERT INTO san_pham(ten_sp, don_gia, giam_gia, hinh, hinh_mota1, hinh_mota2, mo_ta, ma_hang, ma_loai, so_luot_xem) VALUES (?,?,?,?,?,?,?,?,?,?)";
+            execute($sql, $ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
         } catch (Exception $e) {
             throw $e;
         }
@@ -34,14 +34,14 @@ if (!function_exists('san_pham_insert')) {
 
 // CẬP NHẬT SẢN PHẨM
 if (!function_exists('san_pham_update')) {
-    function san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai)
+    function san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai)
     {
         try {
             if (san_pham_exist_by_name($ten_sp, $ma_sp)) {
                 throw new Exception('Cập nhật thất bại! Tên sản phẩm đã tồn tại?');
             }
-            $sql = "UPDATE san_pham SET ten_sp=?, don_gia=?, giam_gia=?, hinh=?, mo_ta=?, ma_hang=?, ma_loai=? WHERE ma_sp=?";
-            execute($sql, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $ma_sp);
+            $sql = "UPDATE san_pham SET ten_sp=?, don_gia=?, giam_gia=?, hinh=?, hinh_mota1=?, hinh_mota2=?, mo_ta=?, ma_hang=?, ma_loai=? WHERE ma_sp=?";
+            execute($sql, $ten_sp, $don_gia, $giam_gia, $hinh, $hinh_mota1, $hinh_mota2, $mo_ta, $ma_hang, $ma_loai, $ma_sp);
         } catch (Exception $e) {
             throw $e;
         }
