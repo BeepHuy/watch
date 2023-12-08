@@ -3,7 +3,9 @@
         <div class="col">
             <div class="panel">
                 <div class="title-panel">
-                    <h2>Chi tiết bình luận (<?= ucfirst($comments[0]['ten_sp']); ?>)</h2>
+                    <div class="detail-commentt">
+                        <h2>Chi tiết bình luận (<?= ucfirst($comments[0]['ten_sp']); ?>)</h2>
+                    </div>
                     <ul class="title-panel-right">
                         <a href="index.php?btn_delete_all&ma_sp=<?= $comments[0]['ma_sp'] ?>" id="delete_all" class="btn-delete-all">Xóa tất cả</a>
                     </ul>
@@ -32,7 +34,8 @@
                                         <td><?= ucfirst($noi_dung); ?></td>
                                         <td class="hide"><?= $thoi_gian_bl; ?></td>
                                         <td class="hide"><?= ucwords($ten_kh); ?></td>
-                                        <td><a title="Xoá" id="delete" href="index.php?btn_delete&ma_bl=<?= $ma_bl ?>&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a></td>
+                                        <td>
+                                            <a title="Xoá" id="delete" data-NoiDbl="<?= $noi_dung ?>" href="index.php?btn_delete&ma_bl=<?= $ma_bl ?>&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a>
                                     </tr>
                                     <tr class="tr-child">
                                         <td class="td-child" colspan="3">
@@ -63,45 +66,64 @@
             </footer>
         </div>
     </div>
-</body>
+    <!-- modal -->
+    <div class="confirmModal">
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p id="modalText"></p>
+                <button id="confirmDelete">Xác nhận</button>
+                <button id="cancelDelete">Hủy</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CHECK DELETE
+            const checkDelete = document.querySelectorAll("#delete");
+            checkDelete.forEach(function(checkDelete) {
+                checkDelete.addEventListener('click', function(event) {
+                    event.preventDefault();
 
-<script>
-    // CHECK DELETE
-    const checkDelete = document.querySelectorAll("#delete");
-    checkDelete.forEach(function(checkDelete) {
-        checkDelete.addEventListener('click', function(event) {
-            const mess = confirm("Bạn có chắc chắn muốn xoá khách hàng này không?");
-            if (mess == false) {
+                    // Hiển thị modal
+                    const modal = document.getElementById('confirmationModal');
+                    const modalText = document.getElementById('modalText');
+                    const NoiDbl = checkDelete.getAttribute('data-NoiDbl');
+                    modal.style.display = 'block';
+                    modalText.innerHTML = `Bạn có muốn xoá bình luận *${NoiDbl}* không?`;
+
+                    // Xác nhận xoá khi nút xác nhận được nhấn
+                    document.getElementById('confirmDelete').addEventListener('click', function() {
+                        window.location.href = checkDelete.href;
+                    });
+
+                    // Ẩn modal khi nút Hủy được nhấn
+                    document.getElementById('cancelDelete').addEventListener('click', function() {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+
+            // CHECK DELETE ALL
+            const checkDeleteAll = document.querySelector("#delete_all");
+            checkDeleteAll.addEventListener('click', function(event) {
                 event.preventDefault();
-            }
-        })
-    })
 
-    // CHECK DELETE ALL
-    const checkDeleteAll = document.querySelector("#delete_all");
-    checkDeleteAll.addEventListener('click', function(event) {
-        const mess = confirm("Bạn có chắc chắn muốn xoá tất cả không?");
-        if (mess == false) {
-            event.preventDefault();
-        }
-    })
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn có chắc chắn muốn xoá tất cả không?';
 
-    // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
-    const trChilds = document.querySelectorAll('.tr-child');
-    const iconSeeMores = document.querySelectorAll('.see-more');
-    const iconNoSeeMores = document.querySelectorAll('.no-see-more');
-    for (let i = 0; i < iconSeeMores.length; i++) {
-        iconSeeMores[i].addEventListener('click', function() {
-            iconSeeMores[i].classList.remove('show');
-            iconSeeMores[i].classList.add('hide');
-            trChilds[i].classList.add('tr-child-show');
-            iconNoSeeMores[i].classList.add('show');
-            iconNoSeeMores[i].addEventListener('click', function() {
-                trChilds[i].classList.remove('tr-child-show');
-                iconNoSeeMores[i].classList.remove('show');
-                iconNoSeeMores[i].classList.add('hide');
-                iconSeeMores[i].classList.add('show');
-            })
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDeleteAll.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
         });
-    }
-</script>
+    </script>
+</body>

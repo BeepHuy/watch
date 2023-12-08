@@ -24,6 +24,26 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
     echo "<h5 class='notifications'>$MESSAGE</h5>";
 }
 ?>
+<style>
+    .control-imageI {
+        width: 100%;
+        position: relative;
+    }
+
+    #previewImage {
+        object-fit: cover;
+        position: absolute;
+        display: none;
+        width: 40px;
+        height: 33px;
+        border-radius: 5px;
+        top: 2px;
+        right: 7px;
+        bottom: 0;
+        z-index: 2;
+        display: none;
+    }
+</style>
 
 <body>
     <div class="grid wide">
@@ -47,10 +67,11 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
                     <input class="form-control" name="mat_khau2" type="password" placeholder="Xác nhân mật khẩu" id="rePassword">
                 </div>
                 <div class="form-group">
-                    <label class="label-control" for="photo">Hình ảnh <strong style="color: red;">*</strong></label>
-                    <div class="image-user-file">
-                        <input class="form-control" name="up_hinh" type="file" id="photo" onchange="previewImage(this);">
-                        <img id="image-preview" src="#" alt="Preview">
+                    <label class="label-control" for="photo">Hình ảnh <strong>*</strong></label>
+                    <div class="control-imageI">
+                        <input type="file" class="form-control" name="up_hinh" id="photo" onchange="displayImage(this)">
+                        <br>
+                        <img id="previewImage" src="#" alt="Preview">
                     </div>
                 </div>
                 <div class="form-group">
@@ -75,20 +96,24 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
 </body>
 
 <script>
-    function previewImage(input) {
-        var preview = document.getElementById('image-preview');
+    function displayImage(input) {
+        var preview = document.getElementById('previewImage');
         var file = input.files[0];
-        var reader = new FileReader();
-
-        reader.onload = function(e) {
-            preview.src = e.target.result;
-            preview.style.display = 'block';
-        }
 
         if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'inline-block';
+            };
+
             reader.readAsDataURL(file);
+        } else {
+            preview.src = '#';
+            preview.style.display = 'none';
         }
-    }
+    };
 </script>
 <script>
     $(document).ready(function() {

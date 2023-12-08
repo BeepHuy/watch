@@ -133,6 +133,19 @@ ul.nav-side-menu>li>a,
     padding-right: 9px;
 }
 
+.detail-commentt {
+    width: 1000px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.detail-commentt h2 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
 .nav-side-menu li a.active {
     border-right: 6px solid #e2ba48;
     background: linear-gradient(#464646, #434343), #474747;
