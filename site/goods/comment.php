@@ -1,10 +1,5 @@
 <!DOCTYPE html>
 <html>
-<script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-<script src="sweetalert2.min.js"></script>
-<link rel="stylesheet" href="sweetalert2.min.css">
 
 <body>
     <div class="grid wide">
@@ -39,16 +34,16 @@
                                             <div class="time-user-comment">
                                                 <span><?= $comment['thoi_gian_bl']; ?></span>
                                             </div>
-                                           
                                         </div>
-                                        <?php
-                                                    if (isset($_SESSION['user']) == $comment['ma_kh']) { ?>
-                                                        <a style="float: right; color: black" id="delete-cm" href="comment-delete.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $comment['ma_sp'] ?>"><ion-icon name="close-circle-outline"></ion-icon></a>
-                                                   <?php }
-                                         ?>
-                                        <div class="main-comment" style="display: flex;">
+                                        <div class="main-comment">
                                             <p><?= $comment['noi_dung'] ?></p>
-                                          
+                                            <?php
+                                            if (isset($_SESSION['user']) == $comment['ma_kh']) { ?>
+                                                <a href="comment-delete.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $comment['ma_sp'] ?>">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </a>
+                                            <?php }
+                                            ?>
                                         </div>
                                     </div>
                                 <?php }
@@ -91,17 +86,4 @@
     </div>
 </body>
 
-<script>
-    $('#delete-cm').click(function(){
-  Swal.fire({
-  text: 'Xóa thành công',
-  icon: 'success',
-  confirmButtonText: 'Cool'
-})
-    })
-</script>
-
-<script src="sweetalert2.all.min.js"></script>
-<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 </html>
