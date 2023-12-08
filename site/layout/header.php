@@ -61,7 +61,7 @@
                             <i class="fa-solid fa-magnifying-glass"></i>
                             <div class="wrapper-search">
                                 <form action="<?= $SITE_URL ?>/goods/listed.php" method="post" class="search">
-                                    <input class="ip-search" name="keywords" type="text">
+                                    <input class="ip-search" name="keywords" type="text" placeholder="Tìm kiếm...">
                                     <button class="submit-search"><i class="fa-solid fa-magnifying-glass"></i></button>
                                 </form>
                             </div>
