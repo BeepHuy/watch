@@ -37,11 +37,13 @@
                                         </div>
                                         <div class="main-comment">
                                             <p><?= $comment['noi_dung'] ?></p>
-                                            <!-- <?php
-                                                    if (isset($_SESSION['user']) == $comment['ma_kh']) { ?>
-                                                        <a href="comment-delete.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $comment['ma_sp'] ?>">Xóa</a>
-                                                   <?php }
-                                                    ?> -->
+                                            <?php
+                                            if (isset($_SESSION['user']) == $comment['ma_kh']) { ?>
+                                                <a href="comment-delete.php?btn_delete&ma_bl=<?= $comment['ma_bl'] ?>&ma_sp=<?= $comment['ma_sp'] ?>">
+                                                    <i class="fa-regular fa-circle-xmark"></i>
+                                                </a>
+                                            <?php }
+                                            ?>
                                         </div>
                                     </div>
                                 <?php }
