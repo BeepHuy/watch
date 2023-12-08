@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Sản Phẩm Giảm Giá</title>
 
 <body>
     <div class="grid wide">

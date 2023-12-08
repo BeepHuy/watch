@@ -1,3 +1,24 @@
+<style>
+    .control-imageI {
+        width: 100%;
+        position: relative;
+    }
+
+    #previewImage {
+        object-fit: cover;
+        position: absolute;
+        display: none;
+        width: 50px;
+        height: 38px;
+        border-radius: 5px;
+        top: 2px;
+        right: 184px;
+        bottom: 0;
+        z-index: 2;
+        display: none;
+    }
+</style>
+
 <body>
     <div class="wrap">
         <div class="col">
@@ -9,7 +30,21 @@
                 <div class="content-panel">
                     <br>
                     <?php
-                    echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    if (!empty($MESSAGE) && $MESSAGE == 'Thêm mới thành công!') {
+                        echo '<script>
+                            Swal.fire({
+                                title: "Thêm mới thành công!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            setTimeout(function() {
+                                window.location.href = "index.php?btn_list";
+                            }, 1500);
+                        </script>';
+                    } else {
+                        echo "<h5 class='notifications'>$MESSAGE</h5>";
+                    }
                     ?>
                     <form id="form" action="index.php" method="POST" enctype="multipart/form-data">
                         <div class="form-group">
@@ -32,9 +67,13 @@
                             <input type="password" class="form-control" name="mat_khau2" id="confirm_pass_customer" placeholder=" "> <br>
                             <label for="" class="label-field">Xác nhận mật khẩu</label>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" style="margin-left:234px;">
                             <label class="control-label" for="pic_customer">Hình ảnh <strong>*</strong></label>
-                            <input type="file" class="form-control" name="hinh" id="pic_customer"> <br>
+                            <div class="control-imageI">
+                                <input style="width: 73.3%;" type="file" class="form-control" name="hinh" id="pic_customer" onchange="displayImage(this)">
+                                <br>
+                                <img id="previewImage" src="#" alt="Preview">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label class="control-label" for="tel_customer">Di động <strong>*</strong></label>
@@ -71,6 +110,24 @@
 </body>
 
 <script>
+    function displayImage(input) {
+        var preview = document.getElementById('previewImage');
+        var file = input.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'inline-block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '#';
+            preview.style.display = 'none';
+        }
+    };
     $(document).ready(function() {
         $("#form").validate({
             rules: {

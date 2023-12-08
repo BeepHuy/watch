@@ -12,7 +12,15 @@
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-site/main.css">
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-site/gridsystem.css">
     <link rel="stylesheet" href="<?= $CONTENT_URL ?>/css/css-site/responsive.css">
-    <title>WATCH</title>
+    <!-- Thêm dòng sau vào phần head của trang HTML của bạn -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .success-message {
+            display: none;
+            color: green;
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -34,6 +42,7 @@
     </div>
 
     <script src="<?= $CONTENT_URL ?>/js/js-site/main.js"></script>
+
 </body>
 
 </html>

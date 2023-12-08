@@ -3,7 +3,23 @@
         <div class="wrapper-login">
             <form id="form-login-main" action="login.php" method="post" class="main-login">
                 <h2 class="title-login">Đăng nhập</h2>
-                <?php echo "<h5>$MESSAGE</h5>"; ?>
+                <?php
+                if (!empty($MESSAGE) && $MESSAGE == 'Đăng nhập thành công!') {
+                    echo '<script>
+                            Swal.fire({
+                                title: "Đăng nhập thành công!",
+                                icon: "success",
+                                showConfirmButton: false,
+                                timer: 1500
+                            });
+                            setTimeout(function() {
+                                window.location.href = "/watch/index.php?btn_login";;
+                            }, 700);
+                        </script>';
+                } else {
+                    echo "<h5 class='notifications'>$MESSAGE</h5>";
+                }
+                ?>
                 <div class="form-group">
                     <label class="label-control" for="username">Tên đăng nhập <strong style="color: red;">*</strong></label>
                     <input class="form-control" name="ma_kh" type="text" placeholder="Tên đăng nhập" id="username" value="<?= $ma_kh; ?>">
@@ -20,6 +36,7 @@
                 <p class="register"><a href="<?= $SITE_URL ?>/account/register.php">Đăng ký</a></p>
             </form>
         </div>
+
     </div>
 </body>
 

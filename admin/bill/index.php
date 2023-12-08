@@ -10,7 +10,7 @@ extract($_REQUEST);
 if (exist_param("ma_hd")) {
     if (exist_param("btn_delete")) {
         try {
-            cthd_delete($ma_cthd);
+            cthd_delete($ma_cthd, $ma_hd);
         } catch (Exception $exc) {
             $MESSAGE = "Xóa thất bại!";
         }

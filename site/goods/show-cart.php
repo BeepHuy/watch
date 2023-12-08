@@ -47,6 +47,49 @@ if (!empty($_SESSION['cart'])) {
 
 <!DOCTYPE html>
 <html lang="en">
+<title>Giỏ Hàng</title>
+<style>
+    .confirmModal .modal {
+        display: none;
+    }
+
+    .confirmModal .modal .modal-content {
+        box-shadow: 0px 2px 5px 5px #d0fafd8a;
+        z-index: 25;
+        border: 1px solid #eeee;
+        width: 450px;
+        height: 150px;
+        top: 25%;
+        left: 44%;
+        text-align: center;
+        border-radius: 20px;
+        position: absolute;
+        background-color: #ffffff;
+        padding: 50px 10px 0px 10px;
+    }
+
+    .confirmModal .modal button {
+        width: 100px;
+        color: #ffffff;
+        padding: 8px;
+        margin: 5px;
+        border: none;
+        cursor: pointer;
+        border-radius: 10px;
+    }
+
+    .confirmModal .modal #modalText {
+        color: #333;
+    }
+
+    .confirmModal .modal #confirmDelete {
+        background-color: #26b99a;
+    }
+
+    .confirmModal .modal #cancelDelete {
+        background-color: #ea2214;
+    }
+</style>
 
 <body>
     <div class="show-cart">
@@ -75,7 +118,7 @@ if (!empty($_SESSION['cart'])) {
                                             $so_luong = $_SESSION['cart'][$product['ma_sp']]; ?>
                                             <tr class="tr-product">
                                                 <td class="remove-product">
-                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" onclick="return confirm('Bạn chắc chắn muốn xóa sản phẩm này không?')">
+                                                    <a href="cart.php?action=delete&id=<?= $product['ma_sp'] ?>" id="delete">
                                                         <i class="fa-regular fa-circle-xmark"></i>
                                                     </a>
                                                 </td>
@@ -90,7 +133,7 @@ if (!empty($_SESSION['cart'])) {
                                                 <td class="amount-product">
                                                     <div class="quantity">
                                                         <!-- <input type="button" value="-" class="btn-minus-quantity is-form"> -->
-                                                        <input type="number" name="quantity[<?= $product['ma_sp'] ?>]" class="ip-quantity" id="quantity" step="1" min="0" max="9999" value="<?= $so_luong; ?>">
+                                                        <input type="number" name="quantity[<?= $product['ma_sp'] ?>]" class="ip-quantity" id="quantity" step="1" min="0" max="50" value="<?= $so_luong; ?>">
                                                         <!-- <input type="button" value="+" class="btn-plus-quantity is-form"> -->
                                                     </div>
                                                 </td>
@@ -152,5 +195,41 @@ if (!empty($_SESSION['cart'])) {
         </div>
     </div>
 </body>
+<div class="confirmModal">
+    <div id="confirmationModal" class="modal">
+        <div class="modal-content">
+            <p id="modalText"></p>
+            <button id="confirmDelete">Xác nhận</button>
+            <button id="cancelDelete">Hủy</button>
+        </div>
+    </div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // CHECK DELETE
+        const checkDelete = document.querySelectorAll("#delete");
+        checkDelete.forEach(function(checkDelete) {
+            checkDelete.addEventListener('click', function(event) {
+                event.preventDefault(); // Ngăn chặn hành động mặc định của thẻ 'a'
+
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn thật sự muốn xóa nó sao?';
+
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDelete.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+    });
+</script>
 
 </html>

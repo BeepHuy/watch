@@ -33,7 +33,7 @@
                                         <td><?= $ma_loai ?></td>
                                         <td>
                                             <a title="Sửa" href="index.php?btn_edit&ma_loai=<?= $ma_loai ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="Xoá" id="delete" href="index.php?btn_delete&ma_loai=<?= $ma_loai ?>"><i class="fa-solid fa-trash"></i></a>
+                                            <a title="Xoá" id="delete" data-tenloai="<?= $ten_loai ?>" href="index.php?btn_delete&ma_loai=<?= $ma_loai ?>"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                 <?php $i++;
@@ -54,26 +54,64 @@
             </footer>
         </div>
     </div>
-</body>
+    <!-- modal -->
+    <div class="confirmModal">
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p id="modalText"></p>
+                <button id="confirmDelete">Xác nhận</button>
+                <button id="cancelDelete">Hủy</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CHECK DELETE
+            const checkDelete = document.querySelectorAll("#delete");
+            checkDelete.forEach(function(checkDelete) {
+                checkDelete.addEventListener('click', function(event) {
+                    event.preventDefault();
 
-<script>
-    // CHECK DELETE
-    const checkDelete = document.querySelectorAll("#delete");
-    checkDelete.forEach(function(checkDelete) {
-        checkDelete.addEventListener('click', function(event) {
-            const mess = confirm("Bạn có chắc chắn muốn xoá loại hàng này không?");
-            if (mess == false) {
+                    // Hiển thị modal
+                    const modal = document.getElementById('confirmationModal');
+                    const modalText = document.getElementById('modalText');
+                    const tenLoai = checkDelete.getAttribute('data-tenloai');
+                    modal.style.display = 'block';
+                    modalText.innerHTML = `Bạn có muốn xoá loại *${tenLoai}* không?`;
+
+                    // Xác nhận xoá khi nút xác nhận được nhấn
+                    document.getElementById('confirmDelete').addEventListener('click', function() {
+                        window.location.href = checkDelete.href;
+                    });
+
+                    // Ẩn modal khi nút Hủy được nhấn
+                    document.getElementById('cancelDelete').addEventListener('click', function() {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+
+            // CHECK DELETE ALL
+            const checkDeleteAll = document.querySelector("#delete_all");
+            checkDeleteAll.addEventListener('click', function(event) {
                 event.preventDefault();
-            }
-        })
-    })
 
-    // CHECK DELETE ALL
-    const checkDeleteAll = document.querySelector("#delete_all");
-    checkDeleteAll.addEventListener('click', function(event) {
-        const mess = confirm("Bạn có chắc chắn muốn xoá tất cả không?");
-        if (mess == false) {
-            event.preventDefault();
-        }
-    })
-</script>
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn có chắc chắn muốn xoá tất cả không?';
+
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDeleteAll.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
+        });
+    </script>
+</body>

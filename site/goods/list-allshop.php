@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+<title>Toàn Bộ Sản phẩm</title>
 
 <body>
     <div class="grid wide">

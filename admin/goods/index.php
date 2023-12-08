@@ -14,20 +14,25 @@ if (exist_param("add")) {
     try {
         san_pham_insert($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
         unset($ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
+        $MESSAGE = 'Thêm mới thành công!';
+        $VIEW = 'goods/new.php';
     } catch (Exception $exc) {
-        $MESSAGE = "Thêm mới thất bại!";
+        $MESSAGE = $exc->getMessage();
+        $VIEW = 'goods/new.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/goods/index.php?btn_list");
 } else if (exist_param("btn_update")) {
     $up_hinh = save_file("up_hinh", "$IMAGE_DIR/img-admin/img-products/");
     $hinh = strlen($up_hinh) > 0 ? $up_hinh : $hinh;
     try {
-        san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai, $so_luot_xem);
+        san_pham_update($ma_sp, $ten_sp, $don_gia, $giam_gia, $hinh, $mo_ta, $ma_hang, $ma_loai);
+        $MESSAGE = 'Cập nhật thành công!';
+        $VIEW = 'goods/edit.php';
     } catch (Exception $exc) {
-        echo $exc->getMessage();
-        $MESSAGE = "Cập nhật thất bại!";
+        $MESSAGE = $exc->getMessage();
+        $goods = san_pham_select_by_id($ma_sp);
+        extract($goods);
+        $VIEW = 'goods/edit.php';
     }
-    $VIEW = header("location: $ROOT_URL/admin/goods/index.php?btn_list");
 } else if (exist_param("btn_delete")) {
     try {
         san_pham_delete($ma_sp);

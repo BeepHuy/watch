@@ -1,9 +1,55 @@
+<?php
+if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
+    echo '<script>
+            Swal.fire({
+                title: "Đăng ký thành công!",
+                icon: "success",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            setTimeout(function() {
+                window.location.href = "./login.php?btn_register";;
+            }, 1000);
+        </script>';
+} else if (!empty($message) && $message == 'Tên đăng nhập đã tồn tại!') {
+    echo '<script>
+            Swal.fire({
+                title: "Tên đăng nhập đã tồn tại!",
+                icon: "error",
+                showConfirmButton: false,
+                timer: 1500
+            });
+        </script>';
+} else {
+    echo "<h5 class='notifications'>$MESSAGE</h5>";
+}
+?>
+<style>
+    .control-imageI {
+        width: 100%;
+        position: relative;
+    }
+
+    #previewImage {
+        object-fit: cover;
+        position: absolute;
+        display: none;
+        width: 40px;
+        height: 33px;
+        border-radius: 5px;
+        top: 2px;
+        right: 7px;
+        bottom: 0;
+        z-index: 2;
+        display: none;
+    }
+</style>
+
 <body>
     <div class="grid wide">
         <div class="wrapper-login">
             <form id="form-register" action="register.php" method="post" class="main-login" enctype="multipart/form-data">
                 <h2 class="title-login">Đăng ký</h2>
-                <?php echo "<h5>$MESSAGE</h5>"; ?>
                 <div class="form-group">
                     <label class="label-control" for="username">Tên đăng nhập <strong style="color: red;">*</strong></label>
                     <input class="form-control" name="ma_kh" type="text" placeholder="Tên đăng nhập" id="username">
@@ -21,8 +67,12 @@
                     <input class="form-control" name="mat_khau2" type="password" placeholder="Xác nhân mật khẩu" id="rePassword">
                 </div>
                 <div class="form-group">
-                    <label class="label-control" for="photo">Hình ảnh <strong style="color: red;">*</strong></label>
-                    <input class="form-control" name="up_hinh" type="file" id="photo">
+                    <label class="label-control" for="photo">Hình ảnh <strong>*</strong></label>
+                    <div class="control-imageI">
+                        <input type="file" class="form-control" name="up_hinh" id="photo" onchange="displayImage(this)">
+                        <br>
+                        <img id="previewImage" src="#" alt="Preview">
+                    </div>
                 </div>
                 <div class="form-group">
                     <label class="label-control" for="sdt">Số điện thoại <strong style="color: red;">*</strong></label>
@@ -45,6 +95,26 @@
     </div>
 </body>
 
+<script>
+    function displayImage(input) {
+        var preview = document.getElementById('previewImage');
+        var file = input.files[0];
+
+        if (file) {
+            var reader = new FileReader();
+
+            reader.onload = function(e) {
+                preview.src = e.target.result;
+                preview.style.display = 'inline-block';
+            };
+
+            reader.readAsDataURL(file);
+        } else {
+            preview.src = '#';
+            preview.style.display = 'none';
+        }
+    };
+</script>
 <script>
     $(document).ready(function() {
         $("#form-register").validate({

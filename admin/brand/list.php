@@ -54,7 +54,6 @@
             </footer>
         </div>
     </div>
-    <!-- Thêm modal HTML vào cuối thẻ <body> -->
     <div class="confirmModal">
         <div id="confirmationModal" class="modal">
             <div class="modal-content">
@@ -65,7 +64,6 @@
         </div>
     </div>
 
-    <!-- Thêm mã JavaScript vào cuối thẻ <body> -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // CHECK DELETE

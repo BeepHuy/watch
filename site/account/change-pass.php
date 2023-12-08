@@ -17,6 +17,9 @@ if (exist_param("btn_change")) {
                 try {
                     khach_hang_change_password($ma_kh, $mat_khau2);
                     $MESSAGE = "Đổi mật khẩu thành công!";
+                    if (isset($MESSAGE) && !empty($MESSAGE)) {
+                        echo '<script>var updateSuccess = true;</script>';
+                    }
                 } catch (Exception $exc) {
                     $MESSAGE = "Đổi mật khẩu thất bại !";
                 }

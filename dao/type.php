@@ -1,13 +1,12 @@
 <?php
 require_once '../../pdo.php';
-
-// KIỂM TRA SỰ TỒN TẠI CỦA TÊN LOẠI
+// KIỂM TRA SỰ TỒN TẠI CỦA TÊN LOAI
 if (!function_exists('loai_exist_by_name')) {
     function loai_exist_by_name($ten_loai, $ma_loai = null)
     {
         $sql = "SELECT COUNT(*) FROM loai WHERE ten_loai = ?";
 
-        // Nếu là cập nhật, loại bỏ loại đang được cập nhật
+        // Nếu là cập nhật, Hãng bỏ Hãng đang được cập nhật
         if ($ma_loai !== null) {
             $sql .= " AND ma_loai != ?";
             return query_value($sql, $ten_loai, $ma_loai) > 0;
@@ -16,8 +15,6 @@ if (!function_exists('loai_exist_by_name')) {
         return query_value($sql, $ten_loai) > 0;
     }
 }
-
-
 // THÊM LOẠI HÀNG
 if (!function_exists('loai_insert')) {
     function loai_insert($ten_loai)
@@ -94,7 +91,6 @@ if (!function_exists('loai_select_by_id')) {
         return query_one($sql, $ma_loai);
     }
 }
-
 // KIỂM TRA LOẠI CÓ TỒN TẠI HAY KHÔNG
 if (!function_exists('loai_exist')) {
     function loai_exist($ma_loai)
@@ -103,6 +99,7 @@ if (!function_exists('loai_exist')) {
         return query_value($sql, $ma_loai) > 0;
     }
 }
+
 // TỔNG SỐ LƯỢNG
 if (!function_exists('amount_type')) {
     function amount_type()

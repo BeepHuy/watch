@@ -31,6 +31,7 @@
                                 <?php
                                 $i = 1;
                                 foreach ($bills as $bill) {
+                                    $don_gia2 = $bill['don_gia'] - ($bill['don_gia'] * ($bill['giam_gia'] / 100));
                                     extract($bill); ?>
                                     <tr>
                                         <td>
@@ -45,9 +46,14 @@
                                         <td class="hide"><?= number_format($don_gia, 0, '.', ','); ?> đ</td>
                                         <td class="hide"><?= $giam_gia; ?>%</td>
                                         <td class="hide"><?= $so_luong; ?></td>
-                                        <td><?= number_format($thanh_tien, 0, '.', ','); ?> đ</td>
+                                        <td>
+                                            <?= number_format($don_gia2 * $so_luong, 0, '.', ',') ?> đ
+                                        </td>
                                         <td class="hide"><?= $ma_hd ?></td>
-                                        <td><a title="Xoá" id="delete" href="index.php?btn_delete&ma_cthd=<?= $ma_cthd ?>&ma_hd=<?= $ma_hd ?>"><i class="fa-solid fa-trash"></i></a></td>
+
+                                        <td>
+                                            <a title="Xoá" id="delete" data-tensp="<?= $ten_sp ?>" href="index.php?btn_delete&ma_hd=<?= $ma_hd ?>&ma_cthd=<?= $ma_cthd ?>&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a>
+                                        </td>
                                     </tr>
                                     <tr class="tr-child">
                                         <td class="td-child" colspan="4">
@@ -93,45 +99,64 @@
             </footer>
         </div>
     </div>
-</body>
+    <div class="confirmModal">
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content">
+                <p id="modalText"></p>
+                <button id="confirmDelete">Xác nhận</button>
+                <button id="cancelDelete">Hủy</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CHECK DELETE
+            const checkDelete = document.querySelectorAll("#delete");
+            checkDelete.forEach(function(checkDelete) {
+                checkDelete.addEventListener('click', function(event) {
+                    event.preventDefault();
 
-<script>
-    // CHECK DELETE
-    const checkDelete = document.querySelectorAll("#delete");
-    checkDelete.forEach(function(checkDelete) {
-        checkDelete.addEventListener('click', function(event) {
-            const mess = confirm("Bạn có chắc chắn muốn xoá khách hàng này không?");
-            if (mess == false) {
+                    // Hiển thị modal
+                    const modal = document.getElementById('confirmationModal');
+                    const modalText = document.getElementById('modalText');
+                    const Tensp = checkDelete.getAttribute('data-tensp');
+                    modal.style.display = 'block';
+                    modalText.innerHTML = `Bạn có muốn xoá đơn hàng *${Tensp}* không?`;
+
+                    // Xác nhận xoá khi nút xác nhận được nhấn
+                    document.getElementById('confirmDelete').addEventListener('click', function() {
+                        window.location.href = checkDelete.href;
+                    });
+
+                    // Ẩn modal khi nút Hủy được nhấn
+                    document.getElementById('cancelDelete').addEventListener('click', function() {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+
+            // CHECK DELETE ALL
+            const checkDeleteAll = document.querySelector("#delete_all");
+            checkDeleteAll.addEventListener('click', function(event) {
                 event.preventDefault();
-            }
-        })
-    })
 
-    // CHECK DELETE ALL
-    const checkDeleteAll = document.querySelector("#delete_all");
-    checkDeleteAll.addEventListener('click', function(event) {
-        const mess = confirm("Bạn có chắc chắn muốn xoá tất cả không?");
-        if (mess == false) {
-            event.preventDefault();
-        }
-    })
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn có chắc chắn muốn xoá tất cả không?';
 
-    // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
-    const trChilds = document.querySelectorAll('.tr-child');
-    const iconSeeMores = document.querySelectorAll('.see-more');
-    const iconNoSeeMores = document.querySelectorAll('.no-see-more');
-    for (let i = 0; i < iconSeeMores.length; i++) {
-        iconSeeMores[i].addEventListener('click', function() {
-            iconSeeMores[i].classList.remove('show');
-            iconSeeMores[i].classList.add('hide');
-            trChilds[i].classList.add('tr-child-show');
-            iconNoSeeMores[i].classList.add('show');
-            iconNoSeeMores[i].addEventListener('click', function() {
-                trChilds[i].classList.remove('tr-child-show');
-                iconNoSeeMores[i].classList.remove('show');
-                iconNoSeeMores[i].classList.add('hide');
-                iconSeeMores[i].classList.add('show');
-            })
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDeleteAll.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
         });
-    }
-</script>
+    </script>
+
+</body>

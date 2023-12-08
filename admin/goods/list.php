@@ -45,7 +45,7 @@
                                         <td class="hide"><?= $giam_gia ?>%</td>
                                         <td>
                                             <a title="Sửa" href="index.php?btn_edit&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-pen-to-square"></i></a>
-                                            <a title="Xoá" id="delete" href="index.php?btn_delete&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a>
+                                            <a title="Xoá" id="delete" data-tensp="<?= $ten_sp ?>" href="index.php?btn_delete&ma_sp=<?= $ma_sp ?>"><i class="fa-solid fa-trash"></i></a>
                                         </td>
                                     </tr>
                                     <tr class="tr-child">
@@ -84,45 +84,66 @@
             </footer>
         </div>
     </div>
-</body>
+    <!-- Thêm modal HTML vào cuối thẻ <body> -->
+    <div class="confirmModal">
+        <div id="confirmationModal" class="modal">
+            <div class="modal-content" style="position: fixed;">
+                <p id="modalText"></p>
+                <button id="confirmDelete">Xác nhận</button>
+                <button id="cancelDelete">Hủy</button>
+            </div>
+        </div>
+    </div>
 
-<script>
-    // CHECK DELETE
-    const checkDelete = document.querySelectorAll("#delete");
-    checkDelete.forEach(function(checkDelete) {
-        checkDelete.addEventListener('click', function(event) {
-            const mess = confirm("Bạn có chắc chắn muốn xoá sản phẩm này không?");
-            if (mess == false) {
+    <!-- Thêm mã JavaScript vào cuối thẻ <body> -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // CHECK DELETE
+            const checkDelete = document.querySelectorAll("#delete");
+            checkDelete.forEach(function(checkDelete) {
+                checkDelete.addEventListener('click', function(event) {
+                    event.preventDefault();
+
+                    // Hiển thị modal
+                    const modal = document.getElementById('confirmationModal');
+                    const modalText = document.getElementById('modalText');
+                    const Tensp = checkDelete.getAttribute('data-tensp');
+                    modal.style.display = 'block';
+                    modalText.innerHTML = `Bạn có chắc mình sẽ xóa *${Tensp}* không?`;
+
+                    // Xác nhận xoá khi nút xác nhận được nhấn
+                    document.getElementById('confirmDelete').addEventListener('click', function() {
+                        window.location.href = checkDelete.href;
+                    });
+
+                    // Ẩn modal khi nút Hủy được nhấn
+                    document.getElementById('cancelDelete').addEventListener('click', function() {
+                        modal.style.display = 'none';
+                    });
+                });
+            });
+
+            // CHECK DELETE ALL
+            const checkDeleteAll = document.querySelector("#delete_all");
+            checkDeleteAll.addEventListener('click', function(event) {
                 event.preventDefault();
-            }
-        })
-    })
 
-    // CHECK DELETE ALL
-    const checkDeleteAll = document.querySelector("#delete_all");
-    checkDeleteAll.addEventListener('click', function(event) {
-        const mess = confirm("Bạn có chắc chắn muốn xoá tất cả không?");
-        if (mess == false) {
-            event.preventDefault();
-        }
-    })
+                // Hiển thị modal
+                const modal = document.getElementById('confirmationModal');
+                const modalText = document.getElementById('modalText');
+                modal.style.display = 'block';
+                modalText.innerHTML = 'Bạn có chắc chắn muốn xoá tất cả không?';
 
-    // XEM THÊM KHI TRÊN MOBILE VÀ TABLET
-    const trChilds = document.querySelectorAll('.tr-child');
-    const iconSeeMores = document.querySelectorAll('.see-more');
-    const iconNoSeeMores = document.querySelectorAll('.no-see-more');
-    for (let i = 0; i < iconSeeMores.length; i++) {
-        iconSeeMores[i].addEventListener('click', function() {
-            iconSeeMores[i].classList.remove('show');
-            iconSeeMores[i].classList.add('hide');
-            trChilds[i].classList.add('tr-child-show');
-            iconNoSeeMores[i].classList.add('show');
-            iconNoSeeMores[i].addEventListener('click', function() {
-                trChilds[i].classList.remove('tr-child-show');
-                iconNoSeeMores[i].classList.remove('show');
-                iconNoSeeMores[i].classList.add('hide');
-                iconSeeMores[i].classList.add('show');
-            })
+                // Xác nhận xoá khi nút xác nhận được nhấn
+                document.getElementById('confirmDelete').addEventListener('click', function() {
+                    window.location.href = checkDeleteAll.href;
+                });
+
+                // Ẩn modal khi nút Hủy được nhấn
+                document.getElementById('cancelDelete').addEventListener('click', function() {
+                    modal.style.display = 'none';
+                });
+            });
         });
-    }
-</script>
+    </script>
+</body>
