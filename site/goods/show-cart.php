@@ -103,10 +103,10 @@ if (!empty($_SESSION['cart'])) {
                                 <table class="tb-form-show-cart">
                                     <thead>
                                         <tr>
-                                            <th class="name-product" colspan="3">SẢN PHẨM</th>
-                                            <th class="price-product c-0">GIÁ</th>
-                                            <th class="amount-product">SỐ LƯỢNG</th>
-                                            <th class="total-product c-0">TẠM TÍNH</th>
+                                            <th class="name-product item1">SẢN PHẨM</th>
+                                            <th class="price-product c-0 item2">GIÁ</th>
+                                            <th class="amount-product item3">SỐ LƯỢNG</th>
+                                            <th class="total-product c-0 item4">TẠM TÍNH</th>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -129,15 +129,15 @@ if (!empty($_SESSION['cart'])) {
                                                         <span class="price-product-mobile"><?= number_format($don_gia, 0, '.', ',') ?> <span style="text-decoration: underline;">đ</span></span>
                                                     </p>
                                                 </td>
-                                                <td class="price-product c-0"> <?= number_format($don_gia, 0, '.', ','); ?> <span style="text-decoration: underline;">đ</span></td>
-                                                <td class="amount-product">
+                                                <td class="price-product c-0" style="margin-left:30px;"> <?= number_format($don_gia, 0, '.', ','); ?> <span style="text-decoration: underline;">đ</span></td>
+                                                <td class="amount-product" style="margin-left:55px;">
                                                     <div class="quantity">
                                                         <!-- <input type="button" value="-" class="btn-minus-quantity is-form"> -->
                                                         <input type="number" name="quantity[<?= $product['ma_sp'] ?>]" class="ip-quantity" id="quantity" step="1" min="0" max="50" value="<?= $so_luong; ?>">
                                                         <!-- <input type="button" value="+" class="btn-plus-quantity is-form"> -->
                                                     </div>
                                                 </td>
-                                                <td class="total-product c-0"><?= number_format($don_gia * $so_luong, 0, '.', ',') ?> <span style="text-decoration: underline;">đ</span></td>
+                                                <td class="total-product c-0" style="margin-left:70px;"><?= number_format($don_gia * $so_luong, 0, '.', ',') ?> <span style="text-decoration: underline;">đ</span></td>
                                             </tr>
                                         <?php
                                             $tong += $don_gia * $so_luong;

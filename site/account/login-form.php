@@ -1,3 +1,5 @@
+<title>Login</title>
+
 <body>
     <div class="grid wide">
         <div class="wrapper-login">

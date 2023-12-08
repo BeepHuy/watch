@@ -44,6 +44,7 @@ if (!empty($MESSAGE) && $MESSAGE == 'Đăng ký thành công!') {
         display: none;
     }
 </style>
+<title>Register</title>
 
 <body>
     <div class="grid wide">
